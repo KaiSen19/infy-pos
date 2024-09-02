@@ -53,7 +53,11 @@ const ReactDataTable = (props) => {
         importBtnTitle,
         goToImportProduct,
         isExportDropdown,
-        isImportDropdown
+        isImportDropdown,
+        isProductCategoryFilter,
+        isBrandFilter,
+        brandFilterTitle,
+        productCategoryFilterTitle,
     } = props;
     const [perPage, setPerPages] = useState(defaultLimit);
     const [pageSize, setPageSize] = useState(Filters.OBJ.pageSize);
@@ -70,6 +74,9 @@ const ReactDataTable = (props) => {
     const [status, setStatus] = useState();
     const [transferStatus, setTransferStatus] = useState();
     const [productUnit, setProductUnit] = useState();
+    const [brand, setBrand] = useState();
+    const [productCategory, setProductCategory] = useState();
+
     const [show, setShow] = useState(false);
     const dispatch = useDispatch();
 
@@ -98,38 +105,9 @@ const ReactDataTable = (props) => {
         adminName,
         totalRows,
         selectDate,
+        brand,
+        productCategory,
     ]);
-    const onStatusChange = (obj) => {
-        dispatch({ type: "RESET_OPTION", payload: false });
-        setStatus(obj);
-        dispatch({ type: "ON_TOGGLE", payload: false });
-    };
-
-    const onTransferStatusChange = (obj) => {
-        dispatch({ type: "RESET_OPTION", payload: false });
-        setTransferStatus(obj);
-        setStatus(obj);
-        dispatch({ type: "ON_TOGGLE", payload: false });
-    };
-
-    const onPaymentStatusChange = (obj) => {
-        dispatch({ type: "RESET_OPTION", payload: false });
-        setPaymentStatus(obj);
-        dispatch({ type: "ON_TOGGLE", payload: false });
-    };
-
-    const onProductUnitChange = (obj) => {
-        dispatch({ type: "RESET_OPTION", payload: false });
-        setProductUnit(obj);
-        dispatch(setProductUnitId(obj.value));
-        dispatch({ type: "ON_TOGGLE", payload: false });
-    };
-
-    const onPaymentTypeChange = (obj) => {
-        dispatch({ type: "RESET_OPTION", payload: false });
-        setPaymentType(obj);
-        dispatch({ type: "ON_TOGGLE", payload: false });
-    };
 
     const handleSearch = (searchText) => {
         handlePageChange(1);
@@ -150,19 +128,20 @@ const ReactDataTable = (props) => {
 
     const onResetClick = () => {
         dispatch(setProductUnitId(0));
-        setStatus({ label: 'All', value: '0' })
-        setPaymentStatus({ label: 'All', value: '0' })
-        setPaymentType({ label: 'All', value: '0' })
-        setProductUnit({ label: 'All', value: '0' })
-        setTableWarehouseValue({ label: "All", value: "0" })
-        dispatch({ type: 'ON_TOGGLE', payload: false })
-    }
+        setStatus({ label: "All", value: "0" });
+        setPaymentStatus({ label: "All", value: "0" });
+        setPaymentType({ label: "All", value: "0" });
+        setTableWarehouseValue({ label: "All", value: "0" });
+        setBrand({ label: "All", value: "0" });
+        setProductCategory({ label: "All", value: "0" });
+        dispatch({ type: "ON_TOGGLE", payload: false });
+    };
 
     const onWarehouseChange = (obj) => {
         setTableWarehouseValue(obj);
         dispatch({ type: "ON_TOGGLE", payload: false });
     };
-
+    
     const subHeaderComponentMemo = React.useMemo(() => {
         return (
             <>
@@ -178,33 +157,42 @@ const ReactDataTable = (props) => {
                 >
                     {isShowFilterField ? (
                         <FilterDropdown
+                            show={show}
+                            productUnit={productUnit}
+                            setProductUnitData={setProductUnit}
+                            setProductCategoryData={setProductCategory}
+                            setBrandData={setBrand}
+                            setStatusData={setStatus}
+                            setTransferStatusData={setTransferStatus}
+                            setPaymentTypeData={setPaymentType}
+                            setPaymentStatusData={setPaymentStatus}
                             onExcelClick={onExcelClick}
                             goToImport={goToImport}
                             paymentStatus={paymentStatus}
                             status={status}
                             title={title}
                             isPaymentStatus={isPaymentStatus}
-                            productUnit={productUnit}
                             paymentType={paymentType}
                             isPaymentType={isPaymentType}
-                            onStatusChange={onStatusChange}
                             isStatus={isStatus}
                             isTransferStatus={isTransferStatus}
-                            onTransferStatusChange={onTransferStatusChange}
                             transferStatus={transferStatus}
-                            show={show}
                             setShow={setShow}
                             isWarehouseType={isWarehouseType}
                             onWarehouseChange={onWarehouseChange}
                             tableWarehouseValue={tableWarehouseValue}
-                            onProductUnitChange={onProductUnitChange}
                             warehouseOptions={warehouseOptions}
                             isUnitFilter={isUnitFilter}
                             onResetClick={onResetClick}
-                            onPaymentStatusChange={onPaymentStatusChange}
-                            onPaymentTypeChange={onPaymentTypeChange}
                             isExportDropdown={isExportDropdown}
                             isImportDropdown={isImportDropdown}
+                            isProductCategoryFilter={isProductCategoryFilter}
+                            isBrandFilter={isBrandFilter}
+                            productCategory={productCategory}
+                            brandFilterTitle={brandFilterTitle}
+                            productCategoryFilterTitle={
+                                productCategoryFilterTitle
+                            }
                         />
                     ) : null}
                     {AddButton}
@@ -282,8 +270,8 @@ const ReactDataTable = (props) => {
                                 {importBtnTitle
                                     ? getFormattedMessage(importBtnTitle)
                                     : getFormattedMessage(
-                                        "product.import.title"
-                                    )}
+                                          "product.import.title"
+                                      )}
                             </Button>
                         </div>
                     ) : (
@@ -311,8 +299,8 @@ const ReactDataTable = (props) => {
                         ? ""
                         : searchText.toLowerCase()
                     : "" || searchText !== ""
-                        ? searchText.toLowerCase()
-                        : "",
+                    ? searchText.toLowerCase()
+                    : "",
             start_date: selectDate ? selectDate.start_date : null,
             end_date: selectDate ? selectDate.end_date : null,
             payment_status: paymentStatus ? paymentStatus.value : null,
@@ -323,9 +311,11 @@ const ReactDataTable = (props) => {
             warehouse_id: warehouseValue
                 ? warehouseValue.value
                 : tableWarehouseValue
-                    ? tableWarehouseValue.value
-                    : null,
+                ? tableWarehouseValue.value
+                : null,
             customer_id: customerId ? customerId : null,
+            brand_id: brand ? brand.value : null,
+            product_category_id: productCategory ? productCategory.value : null,
         };
         onChange(filters);
     };

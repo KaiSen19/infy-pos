@@ -111,6 +111,18 @@ export default (
         }
         url = url + "customer_id=" + filters.customer_id;
     }
+    if (filters.product_category_id) {
+        if (baseUrl.indexOf("?") > 0 || (url.includes("?") && url.length > 1)) {
+            url += "&";
+        }
+        url = url + "product_category_id=" + filters.product_category_id;
+    }
+    if (filters.brand_id) {
+        if (baseUrl.indexOf("?") > 0 || (url.includes("?") && url.length > 1)) {
+            url += "&";
+        }
+        url = url + "brand_id=" + filters.brand_id;
+    }
     if (admin) {
         if (baseUrl.indexOf("?") > 0 || (url.includes("?") && url.length > 1)) {
             url += "&";

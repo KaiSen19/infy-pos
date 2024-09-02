@@ -33,6 +33,7 @@ const Product = (props) => {
         productUnitId,
         allConfigData,
     } = props;
+
     const [deleteModel, setDeleteModel] = useState(false);
     const [isDelete, setIsDelete] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -276,6 +277,14 @@ const Product = (props) => {
                 isExportDropdown={true}
                 isImportDropdown={true}
                 onExcelClick={onExcelClick}
+                isProductCategoryFilter
+                isBrandFilter
+                brandFilterTitle={getFormattedMessage(
+                    "product.input.brand.label"
+                )}
+                productCategoryFilterTitle={getFormattedMessage(
+                    "product.input.product-category.label"
+                )}
             />
             <DeleteMainProduct
                 onClickDeleteModel={onClickDeleteModel}

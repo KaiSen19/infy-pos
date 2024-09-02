@@ -19,6 +19,7 @@ const EditSubProductModal = (props) => {
         order_tax: "",
         stock_alert: "",
         tax_type: "",
+        code:""
     });
     const [errors, setErrors] = useState({});
     const taxTypeFilterOptions = getFormattedOptions(taxMethodOptions);
@@ -36,6 +37,7 @@ const EditSubProductModal = (props) => {
                 order_tax: productData.order_tax ? productData.order_tax : "",
                 stock_alert: productData.stock_alert,
                 tax_type: productData.tax_type,
+                code: productData.code
             }));
         } else {
             setProduct({});
@@ -45,6 +47,7 @@ const EditSubProductModal = (props) => {
                 order_tax: "",
                 stock_alert: "",
                 tax_type: "",
+                code:""
             });
             setErrors({});
         }
@@ -73,6 +76,8 @@ const EditSubProductModal = (props) => {
             validationErrors['product_cost'] = getFormattedMessage('product.input.product-cost.validate.label');
         } else if (formInput['product_price'] == '') {
             validationErrors['product_price'] = getFormattedMessage('product.input.product-price.validate.label');
+        }else if (formInput['code'] == '') {
+            validationErrors['code'] = getFormattedMessage('product.input.code.validate.label');
         } else if (formInput['order_tax'] > 100) {
             validationErrors["order_tax"] = getFormattedMessage('product.input.order-tax.valid.validate.label');
         } else {
@@ -97,7 +102,6 @@ const EditSubProductModal = (props) => {
         const formData = new FormData();
 
         formData.append('name', commonData.name);
-        formData.append('code', commonData.code);
         formData.append('product_code', commonData.product_code);
         formData.append('product_category_id', commonData.product_category_id);
         formData.append('brand_id', commonData.brand_id);
@@ -109,7 +113,7 @@ const EditSubProductModal = (props) => {
         formData.append('main_product_id', commonData.main_product_id);
         formData.append('notes', commonData.notes);
 
-
+        formData.append('code', formInput.code);
         formData.append('product_price', formInput.product_price);
         formData.append('product_cost', formInput.product_cost);
         formData.append('order_tax', formInput.order_tax);
@@ -241,6 +245,30 @@ const EditSubProductModal = (props) => {
                                             : null}
                                     </span>
                                 </div>
+                                <div className="col-md-3 mb-3">
+                                        <label className="form-label">
+                                            {getFormattedMessage(
+                                                "product.input.code.label"
+                                            )}
+                                            :{" "}
+                                        </label>
+                                        <span className="required" />
+                                        <input
+                                            type="text"
+                                            name="code"
+                                            className=" form-control"
+                                            placeholder={placeholderText(
+                                                "product.input.code.placeholder.label"
+                                            )}
+                                            onChange={(e) => onProductDataChange(e)}
+                                            value={formInput.code}
+                                        />
+                                        <span className="text-danger d-block fw-400 fs-small mt-2">
+                                            {errors["code"]
+                                                ? errors["code"]
+                                                : null}
+                                        </span>
+                                    </div>
                                 <div className="col-md-3 mb-3">
                                     <label className="form-label">
                                         {getFormattedMessage(

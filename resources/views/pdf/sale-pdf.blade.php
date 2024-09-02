@@ -128,7 +128,7 @@
     <tbody style="background-color: #f5f3f3;">
     @foreach($sale->saleItems  as $saleItem)
         <tr align="center">
-            <td>{{$saleItem->product->name}}</td>
+            <td>{{$saleItem->product->name}} ({{$saleItem->product->code}})</td>
             <td>{{ currencyAlignment(number_format((float)$saleItem->net_unit_price, 2))}}</td>
             <td>{{$saleItem->quantity}}</td>
             <td>{{ currencyAlignment(number_format((float)$saleItem->discount_amount, 2))}}</td>

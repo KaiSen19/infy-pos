@@ -163,7 +163,15 @@ class PrintData extends React.PureComponent {
                                 <div key={index + 1}>
                                     <div className="p-0">
                                         {productName.name}{" "}
-                                        <span>({productName.code})</span>
+                                        {paymentPrint.settings &&
+                                        parseInt(
+                                            paymentPrint.settings.attributes
+                                                .show_product_code
+                                        ) === 1 ? (
+                                            <span>({productName.code})</span>
+                                        ) : (
+                                            ""
+                                        )}
                                     </div>
                                     <div className="product-border">
                                         <div className="border-0 d-flex justify-content-between">

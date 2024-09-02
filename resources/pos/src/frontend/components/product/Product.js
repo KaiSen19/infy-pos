@@ -149,10 +149,7 @@ const Product = (props) => {
                             {product.attributes?.name}
                             {product.attributes?.code !==
                             product.attributes?.product_code
-                                ? ` (${findDifferentWords(
-                                      product.attributes?.code,
-                                      product.attributes?.product_code
-                                  )})`
+                                ? ` (${product.attributes?.code}, ${product.attributes?.product_code})`
                                 : null}
                         </h6>
                         <span className="fs-small text-gray-700">

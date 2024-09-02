@@ -98,7 +98,7 @@ class SettingRepository extends BaseRepository
         try {
             DB::beginTransaction();
 
-            $settingInputArray = Arr::only($input, ['show_note','show_phone','show_customer','show_address','show_email','show_warehouse','show_tax_discount_shipping','show_logo_in_receipt','show_barcode_in_receipt','notes']);
+            $settingInputArray = Arr::only($input, ['show_note','show_phone','show_customer','show_address','show_email','show_warehouse','show_tax_discount_shipping','show_logo_in_receipt','show_barcode_in_receipt','notes', 'show_product_code']);
 
             foreach ($settingInputArray as $key => $value) {
                 $setting = Setting::where('key' ,$key)->first();

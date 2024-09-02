@@ -43,6 +43,18 @@ class MainProductAPIController extends AppBaseController
             $products->where('product_unit', $request->get('product_unit'));
         }
 
+        if($request->get('brand_id')){
+            $products->whereHas('products.brand', function ($q) use ($request) {
+                $q->where('brands.id', $request->get('brand_id'));
+            });
+        }
+
+        if($request->get('product_category_id')){
+            $products->whereHas('products.productCategory', function ($q) use ($request) {
+                $q->where('product_categories.id', $request->get('product_category_id'));
+            });
+        }
+
         if ($request->get('warehouse_id') && $request->get('warehouse_id') != 'null') {
             $warehouseId = $request->get('warehouse_id');
             $products->whereHas('stock', function ($q) use ($warehouseId) {

@@ -827,5 +827,6 @@
     "receipt-settigns.input.note.validate.label":"Please enter note",
     "receipt-settings.show-barcode.label":"Show barcode in receipt",
     "receipt-settings.show-note.label":"Show note",
-    "globally.submit-and-print-btn":"Submit & Print"
+    "globally.submit-and-print-btn":"Submit & Print",
+    "receipt-settings.show-product-code.label":"Show Product Code"
 }

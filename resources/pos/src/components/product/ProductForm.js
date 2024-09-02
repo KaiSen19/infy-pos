@@ -7,7 +7,10 @@ import MultipleImage from "./MultipleImage";
 import { fetchUnits } from "../../store/action/unitsAction";
 import { fetchAllProductCategories } from "../../store/action/productCategoryAction";
 import { fetchAllBrands } from "../../store/action/brandsAction";
-import { editMainProduct, fetchProduct } from "../../store/action/productAction";
+import {
+    editMainProduct,
+    fetchProduct,
+} from "../../store/action/productAction";
 import { productUnitDropdown } from "../../store/action/productUnitAction";
 import {
     decimalValidate,
@@ -93,6 +96,7 @@ const ProductForm = (props) => {
         order_tax: "",
         tax_type: "",
         add_stock: "",
+        product_variation_code: "",
     });
 
     const [unitModel, setUnitModel] = useState(false);
@@ -129,9 +133,9 @@ const ProductForm = (props) => {
     const variationsOptions =
         variations?.length > 0
             ? variations?.map((variation) => ({
-                id: variation.id,
-                name: variation.attributes.name,
-            }))
+                  id: variation.id,
+                  name: variation.attributes.name,
+              }))
             : [];
 
     const variationTypesOptions = variations
@@ -157,60 +161,60 @@ const ProductForm = (props) => {
         multipleFiles.length !== 0
             ? false
             : singleProduct &&
-            productValue.product_unit[0] &&
-            productValue.product_unit[0].value ===
-            singleProduct[0].product_unit &&
-            productValue.barcode_symbol[0] &&
-            productValue.barcode_symbol[0].value ===
-            singleProduct[0].barcode_symbol.toString() &&
-            singleProduct[0].name === productValue.name &&
-            singleProduct[0].notes === productValue.notes &&
-            singleProduct[0].product_price === productValue.product_price &&
-            singleProduct[0]?.stock_alert?.toString() ===
-            productValue.stock_alert &&
-            singleProduct[0].product_cost === productValue.product_cost &&
-            singleProduct[0].code === productValue.code &&
-            JSON.stringify(singleProduct[0].order_tax) ===
-            productValue.order_tax &&
-            singleProduct[0].quantity_limit ===
-            productValue.sale_quantity_limit &&
-            singleProduct[0].brand_id.value === productValue.brand_id.value &&
-            newTax.length === productValue.tax_type.length &&
-            singleProduct[0].product_category_id.value ===
-            productValue.product_category_id.value &&
-            JSON.stringify(singleProduct[0].images.imageUrls) ===
-            JSON.stringify(removedImage);
+              productValue.product_unit[0] &&
+              productValue.product_unit[0].value ===
+                  singleProduct[0].product_unit &&
+              productValue.barcode_symbol[0] &&
+              productValue.barcode_symbol[0].value ===
+                  singleProduct[0].barcode_symbol.toString() &&
+              singleProduct[0].name === productValue.name &&
+              singleProduct[0].notes === productValue.notes &&
+              singleProduct[0].product_price === productValue.product_price &&
+              singleProduct[0]?.stock_alert?.toString() ===
+                  productValue.stock_alert &&
+              singleProduct[0].product_cost === productValue.product_cost &&
+              singleProduct[0].code === productValue.code &&
+              JSON.stringify(singleProduct[0].order_tax) ===
+                  productValue.order_tax &&
+              singleProduct[0].quantity_limit ===
+                  productValue.sale_quantity_limit &&
+              singleProduct[0].brand_id.value === productValue.brand_id.value &&
+              newTax.length === productValue.tax_type.length &&
+              singleProduct[0].product_category_id.value ===
+                  productValue.product_category_id.value &&
+              JSON.stringify(singleProduct[0].images.imageUrls) ===
+                  JSON.stringify(removedImage);
 
     const [selectedBrand] = useState(
         singleProduct && singleProduct[0]
             ? [
-                {
-                    label: singleProduct[0].brand_id.label,
-                    value: singleProduct[0].brand_id.value,
-                },
-            ]
+                  {
+                      label: singleProduct[0].brand_id.label,
+                      value: singleProduct[0].brand_id.value,
+                  },
+              ]
             : null
     );
 
     const [selectedBarcode] = useState(
         newBarcode && newBarcode[0]
             ? [
-                {
-                    label: newBarcode[0].label,
-                    value: newBarcode[0].value,
-                },
-            ]
+                  {
+                      label: newBarcode[0].label,
+                      value: newBarcode[0].value,
+                  },
+              ]
             : null
     );
 
     const [selectedProductCategory] = useState(
         singleProduct && singleProduct[0]
             ? [
-                {
-                    label: singleProduct[0].product_category_id.label,
-                    value: singleProduct[0].product_category_id.value,
-                },
-            ]
+                  {
+                      label: singleProduct[0].product_category_id.label,
+                      value: singleProduct[0].product_category_id.value,
+                  },
+              ]
             : null
     );
 
@@ -236,14 +240,14 @@ const ProductForm = (props) => {
                 barcode_symbol: selectedBarcode,
                 product_unit: singleProduct
                     ? {
-                        value: productUnit[0]?.id,
-                        label: productUnit[0]?.attributes.name,
-                    }
+                          value: productUnit[0]?.id,
+                          label: productUnit[0]?.attributes.name,
+                      }
                     : "",
                 sale_unit: singleProduct ? singleProduct[0].sale_unit : "",
                 purchase_unit: singleProduct
                     ? singleProduct[0].purchase_unit &&
-                    singleProduct[0].purchase_unit
+                      singleProduct[0].purchase_unit
                     : "",
                 stock_alert: singleProduct
                     ? singleProduct[0].stock_alert
@@ -320,25 +324,25 @@ const ProductForm = (props) => {
     const defaultTaxType = singleProduct
         ? singleProduct[0].tax_type === "1"
             ? {
-                value: 1,
-                label: getFormattedMessage("tax-type.filter.exclusive.label"),
-            }
+                  value: 1,
+                  label: getFormattedMessage("tax-type.filter.exclusive.label"),
+              }
             : {
-                value: 2,
-                label: getFormattedMessage("tax-type.filter.inclusive.label"),
-            } || singleProduct[0].tax_type === "2"
-                ? {
-                    value: 2,
-                    label: getFormattedMessage("tax-type.filter.inclusive.label"),
-                }
-                : {
-                    value: 1,
-                    label: getFormattedMessage("tax-type.filter.exclusive.label"),
-                }
+                  value: 2,
+                  label: getFormattedMessage("tax-type.filter.inclusive.label"),
+              } || singleProduct[0].tax_type === "2"
+            ? {
+                  value: 2,
+                  label: getFormattedMessage("tax-type.filter.inclusive.label"),
+              }
+            : {
+                  value: 1,
+                  label: getFormattedMessage("tax-type.filter.exclusive.label"),
+              }
         : {
-            value: 1,
-            label: getFormattedMessage("tax-type.filter.exclusive.label"),
-        };
+              value: 1,
+              label: getFormattedMessage("tax-type.filter.exclusive.label"),
+          };
 
     const onTaxTypeChange = (obj, variation_type_id) => {
         if (variation_type_id) {
@@ -402,6 +406,7 @@ const ProductForm = (props) => {
                     order_tax: 0,
                     tax_type: "",
                     add_stock: "",
+                    product_variation_code: "",
                 }))
             );
         } else {
@@ -429,6 +434,7 @@ const ProductForm = (props) => {
                         order_tax: 0,
                         tax_type: "",
                         add_stock: "",
+                        product_variation_code: "",
                     },
                 ]);
             } else {
@@ -476,6 +482,14 @@ const ProductForm = (props) => {
                     );
             } else if (
                 Object.keys(error).length <= 0 &&
+                (!variationType.product_variation_code ||
+                    variationType.product_variation_code === "")
+            ) {
+                error[
+                    `${variationType.variation_type_id}_product_variation_code`
+                ] = getFormattedMessage("product.input.code.validate.label");
+            } else if (
+                Object.keys(error).length <= 0 &&
                 (!variationType.product_price ||
                     variationType.product_price === "")
             ) {
@@ -499,8 +513,14 @@ const ProductForm = (props) => {
                     getFormattedMessage(
                         "purchase.product.quantity.validate.label"
                     );
-            } else if (Object.keys(error).length <= 0 && variationType.order_tax > 100) {
-                error[`${variationType.variation_type_id}_order_tax`] = getFormattedMessage('product.input.order-tax.valid.validate.label');
+            } else if (
+                Object.keys(error).length <= 0 &&
+                variationType.order_tax > 100
+            ) {
+                error[`${variationType.variation_type_id}_order_tax`] =
+                    getFormattedMessage(
+                        "product.input.order-tax.valid.validate.label"
+                    );
             }
         });
 
@@ -540,8 +560,15 @@ const ProductForm = (props) => {
             errorss["barcode_symbol"] = getFormattedMessage(
                 "product.input.barcode-symbology.validate.label"
             );
-        } else if (productValue && productValue["code"] && productValue.barcode_symbol?.value == 2 && !codeRegex.test(productValue["code"])) {
-            errorss["code"] = getFormattedMessage("barcode-symbol-uppercase-validation-message");
+        } else if (
+            productValue &&
+            productValue["code"] &&
+            productValue.barcode_symbol?.value == 2 &&
+            !codeRegex.test(productValue["code"])
+        ) {
+            errorss["code"] = getFormattedMessage(
+                "barcode-symbol-uppercase-validation-message"
+            );
         } else if (!productValue["product_unit"]) {
             errorss["product_unit"] = getFormattedMessage(
                 "product.input.product-unit.validate.label"
@@ -623,10 +650,12 @@ const ProductForm = (props) => {
                 );
             } else if (
                 productValue.product_type.value === 1 &&
-                (singleProductTypeData.order_tax &&
-                    singleProductTypeData.order_tax > 100)
+                singleProductTypeData.order_tax &&
+                singleProductTypeData.order_tax > 100
             ) {
-                errorss["order_tax"] = getFormattedMessage('product.input.order-tax.valid.validate.label');
+                errorss["order_tax"] = getFormattedMessage(
+                    "product.input.order-tax.valid.validate.label"
+                );
             } else if (!productValue["warehouse_id"]) {
                 errorss["warehouse_id"] = getFormattedMessage(
                     "purchase.select.warehouse.validate.label"
@@ -660,7 +689,7 @@ const ProductForm = (props) => {
     const onChangeInput = (e) => {
         e.preventDefault();
         const { value } = e.target;
-        if (value.match(/\./g)) {
+        if (value.match(/\./g) && e.target.name !== "name") {
             const [, decimal] = value.split(".");
             if (decimal?.length > 2) {
                 return;
@@ -767,7 +796,10 @@ const ProductForm = (props) => {
 
             if (productValue.product_type.value === 1) {
                 formData.append("code", productValue.code);
-                formData.append("product_cost", singleProductTypeData.product_cost);
+                formData.append(
+                    "product_cost",
+                    singleProductTypeData.product_cost
+                );
                 formData.append(
                     "product_price",
                     singleProductTypeData.product_price
@@ -797,26 +829,16 @@ const ProductForm = (props) => {
             } else {
                 formData.append(
                     "variation_data",
-                    JSON.stringify(variationTypesData.map((variationType) => ({
-                        ...variationType,
-                        tax_type: variationType.tax_type.value,
-                        purchase_quantity: variationType.add_stock,
-                        code: `${productValue.code}-${toUpper(variations
-                            .filter(
-                                (variation) =>
-                                    variation.id ===
-                                    variationType.variation_id
-                            )[0]
-                            ?.attributes?.variation_types.filter(
-                                (vType) =>
-                                    vType.id ===
-                                    variationType.variation_type_id
-                            )[0].name)
-                            }`
-                    })))
+                    JSON.stringify(
+                        variationTypesData.map((variationType) => ({
+                            ...variationType,
+                            tax_type: variationType.tax_type.value,
+                            purchase_quantity: variationType.add_stock,
+                            code: variationType.product_variation_code,
+                        }))
+                    )
                 );
             }
-
         }
         if (multipleFiles) {
             multipleFiles.forEach((image, index) => {
@@ -848,6 +870,7 @@ const ProductForm = (props) => {
             }
         }
     };
+
 
     return (
         <div className="card">
@@ -1076,7 +1099,7 @@ const ProductForm = (props) => {
                                             value={
                                                 productValue.notes
                                                     ? productValue.notes ===
-                                                        "null"
+                                                      "null"
                                                         ? ""
                                                         : productValue.notes
                                                     : ""
@@ -1175,78 +1198,102 @@ const ProductForm = (props) => {
                         {!singleProduct && (
                             <div className="row border-top pt-4">
                                 <div className="col-md-4 mb-3">
-                                    {!singleProduct ?
+                                    {!singleProduct ? (
                                         <ReactSelect
                                             title={getFormattedMessage(
                                                 "product.type.label"
                                             )}
-                                            multiLanguageOption={productTypesOptionsObj}
-                                            onChange={onProductTypeChange}
-                                            value={
-                                                productValue.product_type
+                                            multiLanguageOption={
+                                                productTypesOptionsObj
                                             }
+                                            onChange={onProductTypeChange}
+                                            value={productValue.product_type}
                                             errors={errors["product_type"]}
                                             placeholder={placeholderText(
                                                 "product.type.placeholder.label"
                                             )}
                                         />
-                                        : (
-                                            <>
-                                                <label className="form-label">
-                                                    {getFormattedMessage(
-                                                        "product.type.label"
-                                                    )}
-                                                </label>
-                                                <input type="text" className="form-control" value={productValue.product_type.label} disabled />
-                                            </>
-                                        )
-                                    }
+                                    ) : (
+                                        <>
+                                            <label className="form-label">
+                                                {getFormattedMessage(
+                                                    "product.type.label"
+                                                )}
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                value={
+                                                    productValue.product_type
+                                                        .label
+                                                }
+                                                disabled
+                                            />
+                                        </>
+                                    )}
                                 </div>
-                                {typeof productValue.product_type !== "string" &&
-                                    productValue.product_type?.value === 2 && (!singleProduct ?
-                                        (
-                                            <div className="col-md-4 mb-3">
-                                                <ReactSelect
-                                                    title={getFormattedMessage(
-                                                        "variations.title"
-                                                    )}
-                                                    value={productValue.variation}
-                                                    multiLanguageOption={
-                                                        variationsOptions
-                                                    }
-                                                    onChange={onVariationChange}
-                                                    errors={errors["variation"]}
-                                                />
-                                            </div>
-                                        ) : (
-                                            <div className="col-md-4 mb-3">
-                                                <label className="form-label">
-                                                    {getFormattedMessage(
-                                                        "variations.title"
-                                                    )}
-                                                </label>
-                                                <input type="text" className="form-control" value={productValue.variation.label} disabled />
-                                            </div>
-                                        ))}
-                                {typeof productValue.product_type !== "string" &&
+                                {typeof productValue.product_type !==
+                                    "string" &&
                                     productValue.product_type?.value === 2 &&
-                                    typeof productValue.variation !== "string" && (
+                                    (!singleProduct ? (
+                                        <div className="col-md-4 mb-3">
+                                            <ReactSelect
+                                                title={getFormattedMessage(
+                                                    "variations.title"
+                                                )}
+                                                value={productValue.variation}
+                                                multiLanguageOption={
+                                                    variationsOptions
+                                                }
+                                                onChange={onVariationChange}
+                                                errors={errors["variation"]}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="col-md-4 mb-3">
+                                            <label className="form-label">
+                                                {getFormattedMessage(
+                                                    "variations.title"
+                                                )}
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                value={
+                                                    productValue.variation.label
+                                                }
+                                                disabled
+                                            />
+                                        </div>
+                                    ))}
+                                {typeof productValue.product_type !==
+                                    "string" &&
+                                    productValue.product_type?.value === 2 &&
+                                    typeof productValue.variation !==
+                                        "string" && (
                                         <div className="col-md-4 mb-3">
                                             <ReactMultiSelect
                                                 title={getFormattedMessage(
                                                     "variation.variation_types"
                                                 )}
-                                                value={productValue.variation_type}
+                                                value={
+                                                    productValue.variation_type
+                                                }
                                                 option={variationTypesOptions}
-                                                onChange={onVariationTypesChange}
-                                                errors={errors["variation_type"]}
+                                                onChange={
+                                                    onVariationTypesChange
+                                                }
+                                                errors={
+                                                    errors["variation_type"]
+                                                }
                                             />
                                         </div>
                                     )}
                             </div>
                         )}
-                        {typeof productValue.product_type !== "string" && !singleProduct &&
-                            productValue.product_type?.value === 1 ? (
+                        {typeof productValue.product_type !== "string" &&
+                        !singleProduct &&
+                        productValue.product_type?.value === 1 ? (
                             <div className="row border-top pt-3">
                                 <div className="col-md-3 mb-3">
                                     <label className="form-label">
@@ -1406,7 +1453,7 @@ const ProductForm = (props) => {
                                         )}
                                     />
                                 </div>
-                                {!singleProduct &&
+                                {!singleProduct && (
                                     <div className="col-md-3 mb-3">
                                         <label className="form-label">
                                             {getFormattedMessage(
@@ -1428,7 +1475,9 @@ const ProductForm = (props) => {
                                             onChange={(e) =>
                                                 onSingleProductDataChange(e)
                                             }
-                                            value={singleProductTypeData.add_stock}
+                                            value={
+                                                singleProductTypeData.add_stock
+                                            }
                                             min={1}
                                         />
                                         <span className="text-danger d-block fw-400 fs-small mt-2">
@@ -1437,7 +1486,7 @@ const ProductForm = (props) => {
                                                 : null}
                                         </span>
                                     </div>
-                                }
+                                )}
                             </div>
                         ) : (
                             productValue.product_type?.value === 2 &&
@@ -1503,8 +1552,43 @@ const ProductForm = (props) => {
                                                 `${variation.variation_type_id}_product_cost`
                                             ]
                                                 ? errors[
-                                                `${variation.variation_type_id}_product_cost`
-                                                ]
+                                                      `${variation.variation_type_id}_product_cost`
+                                                  ]
+                                                : null}
+                                        </span>
+                                    </div>
+                                    <div className="col-md-3 mb-3">
+                                        <label className="form-label">
+                                            {getFormattedMessage(
+                                                "product.input.code.label"
+                                            )}
+                                            :{" "}
+                                        </label>
+                                        <span className="required" />
+                                        <input
+                                            type="text"
+                                            name="product_variation_code"
+                                            className=" form-control"
+                                            placeholder={placeholderText(
+                                                "product.input.code.placeholder.label"
+                                            )}
+                                            onChange={(e) =>
+                                                onChangeVariationTypesData(
+                                                    e,
+                                                    variation.variation_type_id
+                                                )
+                                            }
+                                            value={
+                                                variation.product_variation_code
+                                            }
+                                        />
+                                        <span className="text-danger d-block fw-400 fs-small mt-2">
+                                            {errors[
+                                                `${variation.variation_type_id}_product_variation_code`
+                                            ]
+                                                ? errors[
+                                                      `${variation.variation_type_id}_product_variation_code`
+                                                  ]
                                                 : null}
                                         </span>
                                     </div>
@@ -1547,8 +1631,8 @@ const ProductForm = (props) => {
                                                 `${variation.variation_type_id}_product_price`
                                             ]
                                                 ? errors[
-                                                `${variation.variation_type_id}_product_price`
-                                                ]
+                                                      `${variation.variation_type_id}_product_price`
+                                                  ]
                                                 : null}
                                         </span>
                                     </div>
@@ -1614,8 +1698,8 @@ const ProductForm = (props) => {
                                                 `${variation.variation_type_id}_order_tax`
                                             ]
                                                 ? errors[
-                                                `${variation.variation_type_id}_order_tax`
-                                                ]
+                                                      `${variation.variation_type_id}_order_tax`
+                                                  ]
                                                 : null}
                                         </span>
                                     </div>
@@ -1636,7 +1720,7 @@ const ProductForm = (props) => {
                                             }
                                             errors={
                                                 errors[
-                                                `${variation.variation_type_id}_tax_type`
+                                                    `${variation.variation_type_id}_tax_type`
                                                 ]
                                             }
                                             defaultValue={defaultTaxType}
@@ -1645,7 +1729,7 @@ const ProductForm = (props) => {
                                             )}
                                         />
                                     </div>
-                                    {!singleProduct &&
+                                    {!singleProduct && (
                                         <div className="col-md-3 mb-3">
                                             <label className="form-label">
                                                 {getFormattedMessage(
@@ -1678,12 +1762,12 @@ const ProductForm = (props) => {
                                                     `${variation.variation_type_id}_add_stock`
                                                 ]
                                                     ? errors[
-                                                    `${variation.variation_type_id}_add_stock`
-                                                    ]
+                                                          `${variation.variation_type_id}_add_stock`
+                                                      ]
                                                     : null}
                                             </span>
                                         </div>
-                                    }
+                                    )}
                                 </div>
                             ))
                         )}

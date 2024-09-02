@@ -491,6 +491,8 @@ export const Filters = {
         payment_type: "",
         product_unit: "",
         base_unit: "",
+        brand_id:"",
+        product_category_id:''
     },
 };
 

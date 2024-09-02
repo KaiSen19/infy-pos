@@ -27,6 +27,7 @@ const ReceiptSettings = (props) => {
         show_tax_discount_shipping: true,
         show_barcode_in_receipt: true,
         show_logo_in_receipt: true,
+        show_product_code: true,
     });
 
     const [disable, setDisable] = React.useState(true);
@@ -52,6 +53,8 @@ const ReceiptSettings = (props) => {
                     settings.attributes?.show_barcode_in_receipt === "1",
                 show_logo_in_receipt:
                     settings.attributes?.show_logo_in_receipt === "1",
+                show_product_code:
+                    settings.attributes?.show_product_code === "1",
             });
         }
     }, [settings]);
@@ -242,11 +245,29 @@ const ReceiptSettings = (props) => {
                                                 formValues.show_logo_in_receipt
                                             }
                                             onChange={handleInputChange}
-                                            className="me-3 form-check-input cursor-pointer"
+                                            className="form-check-input cursor-pointer"
                                         />
                                         <label className="form-check-label">
                                             {getFormattedMessage(
                                                 "settings.system-settings.select.logo.placeholder.label"
+                                            )}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="col-lg-4 mb-3">
+                                    <div className="form-check form-switch">
+                                        <input
+                                            type="checkbox"
+                                            name="show_product_code"
+                                            checked={
+                                                formValues.show_product_code
+                                            }
+                                            onChange={handleInputChange}
+                                            className="form-check-input cursor-pointer"
+                                        />
+                                        <label className="form-check-label">
+                                            {getFormattedMessage(
+                                                "receipt-settings.show-product-code.label"
                                             )}
                                         </label>
                                     </div>
