@@ -164,7 +164,7 @@ const ProductSearchbar = (props) => {
         if (string.trim() !== "") {
             setSearchString(string);
             const codeSearch = posAllProducts.filter(
-                (item) => item.attributes.code === string
+                (item) => item.attributes.code.toUpperCase() === string.toUpperCase()
             );
             if (codeSearch.length > 0) {
                 if (codeSearch[0].attributes?.stock?.quantity > 0) {
@@ -175,7 +175,7 @@ const ProductSearchbar = (props) => {
                             code: codeSearch[0]?.attributes?.code,
                             id: codeSearch[0]?.id,
                         };
-                        handleOnSelect(data);
+                        onProductSearch(data);
                         setSearchString("");
                     }
                 } else {
