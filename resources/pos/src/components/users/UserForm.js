@@ -10,22 +10,24 @@ import user from '../../assets/images/avatar.png';
 import ModelFooter from '../../shared/components/modelFooter';
 import ReactSelect from "../../shared/select/reactSelect";
 import {fetchAllRoles} from "../../store/action/roleAction";
+import {fetchAllWarehouses} from "../../store/action/warehouseAction";
 
 
 const UserForm = (props) => {
-    const {addUserData, id, singleUser, isEdit, isCreate, fetchAllRoles, roles} = props;
+    const {addUserData, id, singleUser, isEdit, isCreate, fetchAllRoles,roles,fetchAllWarehouses,warehouses} = props;
     const Dispatch = useDispatch()
     const navigate = useNavigate();
 
     const [userValue, setUserValue] = useState({
-        first_name: singleUser ? singleUser[0].first_name : '',
-        last_name: singleUser ? singleUser[0].last_name : '',
-        email: singleUser ? singleUser[0].email : '',
-        phone: singleUser ? singleUser[0].phone : '',
-        password: '',
-        confirm_password: '',
-        role_id: singleUser ? singleUser[0].role_id : '',
+        first_name: singleUser ? singleUser[0].first_name : 'kai_first_name',
+        last_name: singleUser ? singleUser[0].last_name : 'kai_last_name',
+        email: singleUser ? singleUser[0].email : 'kai19@gmail.com',
+        phone: singleUser ? singleUser[0].phone : '0910010001',
+        password: 'P@ssw0rd',
+        confirm_password: 'P@ssw0rd',
+        role_id: singleUser ? singleUser[0].role_id : '1',
         image: singleUser ? singleUser[0].image : '',
+        warehouse: singleUser ? singleUser[0].warehouse_id : '1',
     });
     const [errors, setErrors] = useState({
         first_name: '',
@@ -35,6 +37,7 @@ const UserForm = (props) => {
         password: '',
         confirm_password: '',
         role_id: '',
+        warehouse_id: '',
     });
 
     const avatarName = getAvatarName(singleUser && singleUser[0].image === '' && singleUser[0].first_name && singleUser[0].last_name && singleUser[0].first_name + ' ' + singleUser[0].last_name)
@@ -46,20 +49,39 @@ const UserForm = (props) => {
         && singleUser[0].phone === userValue.phone
         && singleUser[0].image === userValue.image
     && singleUser[0].role_id.label[0] === userValue.role_id.label[0]
+    && singleUser[0].warehouse_id.value === userValue.warehouse
 
     const [selectedRole] = useState(singleUser && singleUser[0] ? ([{
-        label: singleUser[0].role_id.label[0], value: singleUser[0].role_id.value[0]
+        label: singleUser[0].role_id.label[0],
+        value: singleUser[0].role_id.value[0]
     }]) : null);
+
+    console.log("singleUser : ",singleUser)
+    const [selectedWarehouse] = useState(singleUser && singleUser[0] ? ([{
+        label: singleUser[0].warehouse_id.label,
+        value: singleUser[0].warehouse_id.value
+    }]) : null);
+    console.log("selectedWarehouse : ",selectedWarehouse)
 
     useEffect(() => {
         fetchAllRoles()
         setImagePreviewUrl(singleUser ? singleUser[0].image && singleUser[0].image : user);
     }, []);
 
+    useEffect(() => {
+        fetchAllWarehouses();
+    }, []);
+
     const onRolesChange = (obj) => {
         setUserValue(productValue => ({...productValue, role_id: obj}))
         setErrors('');
     };
+
+    const onWarehouseChange = (obj) => {
+        setUserValue(item => ({...item, warehouse_id: obj}))
+        setErrors('');
+    };
+
 
     const handleValidation = () => {
         let errorss = {};
@@ -121,6 +143,11 @@ const UserForm = (props) => {
             formData.append('role_id', data.role_id.value);
         } else {
             formData.append('role_id', data.role_id);
+        }
+        if (data.warehouse_id.value) {
+            formData.append('warehouse', data.warehouse_id.value);
+        } else {
+            formData.append('warehouse', data.warehouse_id);
         }
         if (selectImg) {
             formData.append('image', data.image);
@@ -233,8 +260,13 @@ const UserForm = (props) => {
                                         className='text-danger d-block fw-400 fs-small mt-2'>{errors['confirm_password'] ? errors['confirm_password'] : null}</span>
                             </div>}
                         <div className='col-md-6'>
-                            <ReactSelect title={getFormattedMessage("user.input.role.label")} placeholder={placeholderText("user.input.role.placeholder.label")} defaultValue={selectedRole}
-                                         data={roles} onChange={onRolesChange} errors={errors['role_id']}/>
+                            <ReactSelect title={getFormattedMessage("user.input.warehouse.label")} placeholder={placeholderText("user.input.role.placeholder.label")}
+                            defaultValue={selectedWarehouse} data={warehouses} onChange={onWarehouseChange} errors={errors['warehouse_id']}
+                            />
+                        </div>
+                        <div className='col-md-6'>
+                            <ReactSelect title={getFormattedMessage("user.input.role.label")} placeholder={placeholderText("user.input.role.placeholder.label")}
+                            defaultValue={selectedRole} data={roles} onChange={onRolesChange} errors={errors['role_id']}/>
                         </div>
                         <ModelFooter onEditRecord={singleUser} onSubmit={onSubmit} editDisabled={disabled}
                                      link='/app/users' addDisabled={!userValue.first_name}/>
@@ -246,9 +278,16 @@ const UserForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    const {roles} = state;
-    return {roles}
+    // const {roles} = state;
+    // return {roles}
+     const {warehouses,roles} = state;
+    return {warehouses,roles}
 };
 
-export default connect(mapStateToProps, {fetchAllRoles})(UserForm);
+
+
+export default connect(mapStateToProps, {
+    fetchAllWarehouses,
+    fetchAllRoles,
+})(UserForm);
 

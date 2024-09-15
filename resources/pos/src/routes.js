@@ -46,6 +46,7 @@ import EditPurchaseReturn from "./components/purchaseReturn/EditPurchaseReturn";
 import PurchaseReturnDetails from "./components/purchaseReturn/PurchaseReturnDetails";
 import WarehouseReport from "./components/report/warehouseReport/WarehouseReport";
 import SaleReport from "./components/report/saleReport/SaleReport";
+import SaleQtyReport from "./components/report/saleQtyReport/SaleQtyReport";
 import StockReport from "./components/report/stockReport/StockReport";
 import StockDetails from "./components/report/stockReport/StockDetails";
 import TopSellingProductsReport from "./components/report/topSellingReport/TopSellingProductsReport";
@@ -400,6 +401,11 @@ export const route = [
         path: "purchase-return/detail/:id",
         ele: <PurchaseReturnDetails />,
         permission: Permissions.MANAGE_PURCHASE_RETURN,
+    },
+    {
+        path: "report/report-sale-qty",
+        ele: <SaleQtyReport />,
+        permission: Permissions.MANAGE_REPORTS_CASHIER,
     },
     {
         path: "report/report-warehouse",

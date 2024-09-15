@@ -29,6 +29,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $status
+ * @property int $warehouse
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions
@@ -87,6 +88,7 @@ class User extends Authenticatable implements HasMedia, JsonResourceful, CanRese
         'phone',
         'password',
         'language',
+        'warehouse',
     ];
 
     public static $rules = [
@@ -97,6 +99,7 @@ class User extends Authenticatable implements HasMedia, JsonResourceful, CanRese
         'password' => 'required|min:6',
         'confirm_password' => 'required|min:6|same:password',
         'image' => 'image|mimes:jpg,jpeg,png',
+        'warehouse' => 'required|numeric',
     ];
 
     public function getImageUrlAttribute(): string
@@ -147,6 +150,8 @@ class User extends Authenticatable implements HasMedia, JsonResourceful, CanRese
             'role' => $this->roles,
             'created_at' => $this->created_at,
             'language' => $this->language,
+            'warehouse' => $this->warehouse,
+            'warehouse_name' => $this->warehouse_name,
         ];
 
         return $fields;

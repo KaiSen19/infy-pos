@@ -6,7 +6,7 @@ import {fetchAllWarehouses} from '../../../store/action/warehouseAction';
 import { getFormattedMessage } from '../../../shared/sharedMethod';
 
 const WarehouseDropDown = (props) => {
-    const {setSelectedOption, selectedOption, warehouses, fetchAllWarehouses} = props;
+    const {setSelectedOption, selectedOption, warehouses, fetchAllWarehouses,fetchUser,user} = props;
 
     const warehouseOption = warehouses && warehouses.map((warehouse) => {
         return {value: warehouse.id, label: warehouse.attributes.name}
@@ -31,7 +31,7 @@ const WarehouseDropDown = (props) => {
                     defaultValue={selectedOption}
                     value={selectedOption}
                     onChange={onChangeWarehouse}
-                    options={warehouseOption}
+                    // options={warehouseOption}
                     noOptionsMessage={() => getFormattedMessage('no-option.label')}
                 />
             </InputGroup>

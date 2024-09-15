@@ -41,7 +41,7 @@ import {
     getFormattedMessage,
     getFormattedOptions,
 } from "../../shared/sharedMethod";
-import { discountType, paymentMethodOptions, toastType } from "../../constants";
+import { discountType, paymentMethodOptions, toastType,Tokens } from "../../constants";
 import TopProgressBar from "../../shared/components/loaders/TopProgressBar";
 import CustomerForm from "./customerModel/CustomerForm";
 import HoldListModal from "./holdListModal/HoldListModal";
@@ -163,10 +163,15 @@ const PosMainPage = (props) => {
                 label: settings.attributes.customer_name,
             }
         );
+        let warehouse_id = localStorage.getItem(Tokens.WAREHOUSE_ID);
+        let warehouse_name = localStorage.getItem(Tokens.WAREHOUSE_NAME);
         setSelectedOption(
             settings.attributes && {
-                value: Number(settings.attributes.default_warehouse),
-                label: settings.attributes.warehouse_name,
+                //TODO :old code
+                // value: Number(settings.attributes.default_warehouse),
+                // label: settings.attributes.warehouse_name,
+                value: Number(warehouse_id),
+                label: warehouse_name,
             }
         );
     }, [settings]);

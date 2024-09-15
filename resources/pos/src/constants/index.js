@@ -549,6 +549,8 @@ export const Tokens = {
     UPDATED_LAST_NAME: "updated_last_name",
     LANGUAGE: "language",
     UPDATED_LANGUAGE: "updated_language",
+    WAREHOUSE_ID: "warehouse_id",
+    WAREHOUSE_NAME: "warehouse_name",
 };
 
 export const errorMessage = {
@@ -585,6 +587,7 @@ export const Permissions = {
     MANAGE_ADJUSTMENTS: "manage_adjustments",
     MANAGE_TRANSFERS: "manage_transfers",
     MANAGE_REPORTS: "manage_reports",
+    MANAGE_REPORTS_CASHIER: "manage_reports_cashier",
     MANAGE_EMAIL_TEMPLATES: "manage_email_templates",
     MANAGE_QUOTATION: "manage_quotations",
     MANAGE_SMS_API: "manage_sms_apis",

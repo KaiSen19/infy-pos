@@ -226,6 +226,7 @@ class ReportAPIController extends AppBaseController
         return $this->sendResponse($data, 'Stock Report retrieved successfully');
     }
 
+
     public function getProductSaleReportExport(): JsonResponse
     {
         if (Storage::exists('excel/product-sales-report-excel.xlsx')) {
@@ -237,6 +238,19 @@ class ReportAPIController extends AppBaseController
 
         return $this->sendResponse($data, 'Product sales Report retrieved successfully');
     }
+
+    public function getStockAndProductSaleReportExcel(Request $request): JsonResponse
+    {
+        if (Storage::exists('excel/stock-and-product-sales-report-excel.xlsx')) {
+            Storage::delete('excel/stock-and-product-sales-report-excel.xlsx');
+        }
+        Excel::store(new StockReportExport, 'excel/stock-report-excel.xlsx');
+
+        $data['stock_report_excel_url'] = Storage::url('excel/stock-report-excel.xlsx');
+
+        return $this->sendResponse($data, 'Stock Report retrieved successfully');
+    }
+
 
     public function getPurchaseProductReportExport(): JsonResponse
     {

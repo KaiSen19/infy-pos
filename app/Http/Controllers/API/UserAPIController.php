@@ -12,6 +12,7 @@ use App\Http\Resources\UserResource;
 use App\Models\POSRegister;
 use App\Models\User;
 use App\Repositories\UserRepository;
+use App\Repositories\WarehouseRepository;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -22,12 +23,16 @@ use Illuminate\Support\Facades\Auth;
  */
 class UserAPIController extends AppBaseController
 {
-    /** @var UserRepository */
+    /** @var UserRepository
+     *  @var WarehouseRepository*/
+
+    private $warehouseRepository;
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository,WarehouseRepository $warehouseRepository)
     {
         $this->userRepository = $userRepository;
+        $this->warehouseRepository = $warehouseRepository;
     }
 
     public function index(Request $request): UserCollection
@@ -50,6 +55,11 @@ class UserAPIController extends AppBaseController
     public function show($id): UserResource
     {
         $user = $this->userRepository->find($id);
+        $wareHouseid =  $user['warehouse'];
+        if ($wareHouseid > 0 ) {
+            $wareHouse = $this->warehouseRepository->find($wareHouseid);
+            $user['warehouse_name'] = $wareHouse['name'];
+        }
 
         return new UserResource($user);
     }

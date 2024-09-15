@@ -154,6 +154,8 @@ const AsideTopSubMenuItem = (props) => {
                                     className={`${
                                         location.pathname === mainItems.to ||
                                         location.pathname === mainItems.path ||
+                                        // location.pathname ===
+                                        //     mainItems.saleQtyPath ||
                                         location.pathname ===
                                             mainItems.stockPath ||
                                         location.pathname ===
@@ -224,6 +226,9 @@ const AsideTopSubMenuItem = (props) => {
                                         location.pathname.includes(
                                             mainItems?.subPath
                                                 ?.salesReturnSubPath
+                                        ) ||
+                                        location.pathname.includes(
+                                            mainItems?.subPath?.saleQtySubPath
                                         ) ||
                                         location.pathname.includes(
                                             mainItems?.subPath?.expensesSubPath

@@ -53,6 +53,7 @@ const AsideMenu = (props) => {
         if (!searchTerm) {
             return asideConfig;
         }
+
         return asideConfig.filter((post) => {
             if (post.newRoute || post.subTitles) {
                 if (post.newRoute) {
@@ -80,7 +81,6 @@ const AsideMenu = (props) => {
             }
         });
     };
-
     const filteredMenu = filterMenu(asideConfig, searchTerm);
 
     // side sub-menu handling
@@ -332,6 +332,9 @@ const AsideMenu = (props) => {
                                                     ?.salesReturnSubPath ||
                                             location.pathname ===
                                                 mainItems?.subPath
+                                                    ?.saleQtySubPath ||
+                                            location.pathname ===
+                                                mainItems?.subPath
                                                     ?.expensesSubPath ||
                                             location.pathname ===
                                                 mainItems?.subPath
@@ -373,6 +376,8 @@ const AsideMenu = (props) => {
                                                             location.pathname.includes(
                                                                 subMainItems.to
                                                             ) ||
+                                                            // location.pathname ===
+                                                            //     subMainItems.saleQtyPath ||
                                                             location.pathname ===
                                                                 subMainItems.stockPath ||
                                                             location.pathname ===
@@ -429,6 +434,8 @@ const AsideMenu = (props) => {
                                                 location.pathname.includes(
                                                     mainItems.to
                                                 ) ||
+                                                // location.pathname ===
+                                                //     mainItems.saleQtyPath ||
                                                 location.pathname ===
                                                     mainItems.stockPath ||
                                                 location.pathname ===

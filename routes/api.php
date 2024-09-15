@@ -360,6 +360,7 @@ Route::middleware('auth:sanctum')->group(function () {
     //stock report
     Route::get('stock-report', [ManageStockAPIController::class, 'stockReport'])->name('report-stockReport');
     Route::get('stock-report-excel', [ReportAPIController::class, 'stockReportExcel'])->name('report-stockReportExcel');
+    Route::get('stock-product-sale-report-excel', [ReportAPIController::class, 'getStockAndProductSaleReportExcel'])->name('report-stock-product-sale-ReportExcel');
     Route::get(
         'get-sale-product-report',
         [SaleAPIController::class, 'getSaleProductReport']

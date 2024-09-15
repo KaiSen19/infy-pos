@@ -1,6 +1,6 @@
 export const environment = {
     //TODO : Prod
-    // URL: window.location.protocol + '//' + window.location.hostname,
+    URL: window.location.protocol + '//' + window.location.hostname,
     //TODO : Develop
-    URL: window.location.protocol + '//' + window.location.hostname+":8000",
+    // URL: window.location.protocol + '//' + window.location.hostname+":8000",
 };

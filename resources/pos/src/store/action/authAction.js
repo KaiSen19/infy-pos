@@ -73,6 +73,14 @@ export const loginAction = (user, navigate, setLoading) => async (dispatch) => {
                 response.data.data.user.last_name
             );
             localStorage.setItem(
+                Tokens.WAREHOUSE_ID,
+                response.data.data.user.warehouse
+            );
+            localStorage.setItem(
+                Tokens.WAREHOUSE_NAME,
+                response.data.data.user.warehouse_name
+            );
+            localStorage.setItem(
                 "loginUserArray",
                 JSON.stringify(response.data.data.user)
             );
@@ -132,6 +140,8 @@ export const logoutAction = (token, navigate) => async (dispatch) => {
             localStorage.removeItem(Tokens.UPDATED_FIRST_NAME);
             localStorage.removeItem(Tokens.UPDATED_LAST_NAME);
             localStorage.removeItem(Tokens.USER_IMAGE_URL);
+            localStorage.removeItem(Tokens.WAREHOUSE_ID);
+            localStorage.removeItem(Tokens.WAREHOUSE_NAME);
             navigate("/login");
             dispatch(
                 addToast({

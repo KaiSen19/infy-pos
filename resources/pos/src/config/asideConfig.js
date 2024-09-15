@@ -334,6 +334,27 @@ export default [
         ],
     },
     {
+        title: "reports.cashier.title",
+        name: "reports-cashier",
+        fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
+        to: "/app/reports-cashier",
+        class: "d-flex",
+        permission: Permissions.MANAGE_REPORTS_CASHIER,
+        subPath: {
+            saleQtySubPath: "/app/report/report-sale-qty",
+        },
+        subMenu: [
+            {
+                title: "sale.qty.reports.title",
+                to: "/app/report/report-sale-qty",
+                name: "reports-cashier",
+                class: "d-flex",
+                fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
+                permission: Permissions.MANAGE_REPORTS_CASHIER,
+            },
+        ],
+    },
+    {
         title: "reports.title",
         name: "reports",
         fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
@@ -377,6 +398,11 @@ export default [
             {
                 title: getFormattedMessage("sale.reports.title"),
                 to: "/app/report/report-sale",
+            },
+            {
+                title: getFormattedMessage("stock.reports.title"),
+                to: "/app/report/report-stock",
+                detail: "/app/report/report-detail-stock",
             },
             {
                 title: getFormattedMessage("stock.reports.title"),

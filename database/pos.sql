@@ -853,7 +853,8 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `created_
 (25, 'manage_sms_templates', 'Manage Sms Templates', 'web', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
 (26, 'manage_sms_apis', 'Manage Sms Apis', 'web', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
 (27, 'manage_language', 'Manage Language', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
-(28, 'manage_variations', 'Manage Variations', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31');
+(28, 'manage_variations', 'Manage Variations', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(29, 'manage_reports_cashier', 'Manage Reports Cashier', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31');
 
 -- --------------------------------------------------------
 
@@ -1158,7 +1159,8 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (25, 1),
 (26, 1),
 (27, 1),
-(28, 1);
+(28, 1),
+(29, 1);
 
 -- --------------------------------------------------------
 

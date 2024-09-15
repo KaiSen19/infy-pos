@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Laravel\Sanctum\Sanctum;
+use App\Repositories\WarehouseRepository;
 
 class AuthController extends AppBaseController
 {
@@ -23,8 +24,10 @@ class AuthController extends AppBaseController
      * The authentication factory implementation.
      *
      * @var \Illuminate\Contracts\Auth\Factory
+     * @var WarehouseRepository
      */
     protected $auth;
+    private $warehouseRepository;
 
     /**
      * The number of minutes tokens should be allowed to remain valid.
@@ -45,11 +48,12 @@ class AuthController extends AppBaseController
      *
      * @return void
      */
-    public function __construct(AuthFactory $auth, int $expiration = null, string $provider = null)
+    public function __construct(WarehouseRepository $warehouseRepository,AuthFactory $auth, int $expiration = null, string $provider = null)
     {
         $this->auth = $auth;
         $this->expiration = config('sanctum.expiration');
         $this->provider = $provider;
+        $this->warehouseRepository = $warehouseRepository;
     }
 
     /**
@@ -65,6 +69,12 @@ class AuthController extends AppBaseController
             return $this->sendError('username and password required', 422);
         }
         $user = User::whereRaw('lower(email) = ?', [$email])->first();
+
+        $wareHouseid =  $user['warehouse'];
+        if ($wareHouseid > 0 ) {
+            $wareHouse = $this->warehouseRepository->find($wareHouseid);
+            $user['warehouse_name'] = $wareHouse['name'];
+        }
 
         if (empty($user)) {
             return $this->sendError(__('messages.error.invalid_username_password'), 422);

@@ -35,6 +35,7 @@ const User = (props) => {
         confirm_password: user.attributes.confirm_password,
         // role_id: user.attributes.role.map(ro => ro.name),
         role_name: user.attributes.role.map((role)=> role.name),
+        warehouse: user.attributes.warehouse,
         id: user.id
     }));
 

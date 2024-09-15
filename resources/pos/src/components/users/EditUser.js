@@ -17,7 +17,7 @@ const EditUser = (props) => {
         fetchUser(id);
         setIsEdit(true);
     }, []);
-
+    console.log("users : ",users)
     const itemsValue = users && users.length === 1 && users.map(user => ({
         image: user.attributes.image,
         first_name: user.attributes.first_name,
@@ -27,6 +27,10 @@ const EditUser = (props) => {
         role_id: {
             value: user.attributes.role.map((ro) => ro.id),
             label: user.attributes.role.map((ro) => ro.name)
+        },
+        warehouse_id: {
+            value: user.attributes.warehouse,
+            label: user.attributes.warehouse_name
         },
         id: user.id
     }));
