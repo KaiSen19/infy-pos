@@ -64,6 +64,7 @@
     "user.input.password.validate.label": "กรุณากรอกpassword",
     "user.input.confirm-password.validate.label": "กรุณากรอกconfirm password",
     "user.input.role.validate.label": "Please select role",
+    "user.input.warehouse.validate.label": "Please select Warehouse",
     "user.success.create.message": "User created successfully",
     "user.success.edit.message": "User updated successfully",
     "user.success.delete.message": "User deleted successfully",

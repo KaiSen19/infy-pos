@@ -19,15 +19,15 @@ const UserForm = (props) => {
     const navigate = useNavigate();
 
     const [userValue, setUserValue] = useState({
-        first_name: singleUser ? singleUser[0].first_name : 'kai_first_name',
-        last_name: singleUser ? singleUser[0].last_name : 'kai_last_name',
-        email: singleUser ? singleUser[0].email : 'kai19@gmail.com',
-        phone: singleUser ? singleUser[0].phone : '0910010001',
-        password: 'P@ssw0rd',
-        confirm_password: 'P@ssw0rd',
-        role_id: singleUser ? singleUser[0].role_id : '1',
+        first_name: singleUser ? singleUser[0].first_name : '',
+        last_name: singleUser ? singleUser[0].last_name : '',
+        email: singleUser ? singleUser[0].email : '',
+        phone: singleUser ? singleUser[0].phone : '',
+        password: '',
+        confirm_password: '',
+        role_id: singleUser ? singleUser[0].role_id : '',
         image: singleUser ? singleUser[0].image : '',
-        warehouse: singleUser ? singleUser[0].warehouse_id : '1',
+        warehouse: singleUser ? singleUser[0].warehouse_id : '',
     });
     const [errors, setErrors] = useState({
         first_name: '',
@@ -37,7 +37,7 @@ const UserForm = (props) => {
         password: '',
         confirm_password: '',
         role_id: '',
-        warehouse_id: '',
+        warehouse: '',
     });
 
     const avatarName = getAvatarName(singleUser && singleUser[0].image === '' && singleUser[0].first_name && singleUser[0].last_name && singleUser[0].first_name + ' ' + singleUser[0].last_name)
@@ -78,7 +78,7 @@ const UserForm = (props) => {
     };
 
     const onWarehouseChange = (obj) => {
-        setUserValue(item => ({...item, warehouse_id: obj}))
+        setUserValue(item => ({...item, warehouse: obj}))
         setErrors('');
     };
 
@@ -144,10 +144,11 @@ const UserForm = (props) => {
         } else {
             formData.append('role_id', data.role_id);
         }
-        if (data.warehouse_id.value) {
-            formData.append('warehouse', data.warehouse_id.value);
+        debugger
+        if (data.warehouse.value) {
+            formData.append('warehouse', data.warehouse.value);
         } else {
-            formData.append('warehouse', data.warehouse_id);
+            formData.append('warehouse', data.warehouse);
         }
         if (selectImg) {
             formData.append('image', data.image);
