@@ -57,6 +57,7 @@ class ReportAPIController extends AppBaseController
 
     private $supplierRepository;
 
+    private $customerRepository;
     /**
      * ReportAPIController constructor.
      */
