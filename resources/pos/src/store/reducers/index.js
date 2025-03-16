@@ -48,6 +48,7 @@ import resetOptionReducer from "./resetOptionReducer";
 import dateReducer from "./dateReducres";
 import printQuantity from "./printQuantity";
 import stockReportReducer from "./stockReportReducres";
+import saleQtyReportReducer from "./saleQtyReportReducres";
 import productQuantityReport from "./productQuantityReport";
 import topSellingReportReducer from "./topSellingReportReducer";
 import stockDetailsSaleTabReducers from "./stockDetailsSaleTabReducers";
@@ -151,6 +152,7 @@ export default combineReducers({
     dates: dateReducer,
     printQuantity: printQuantity,
     stockReports: stockReportReducer,
+    saleQtyReports: saleQtyReportReducer,
     productQuantityReport: productQuantityReport,
     topSellingReport: topSellingReportReducer,
     stockDetailsSales: stockDetailsSaleTabReducers,

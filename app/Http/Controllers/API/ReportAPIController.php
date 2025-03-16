@@ -13,6 +13,7 @@ use App\Exports\PurchasesWarehouseReportExport;
 use App\Exports\SaleReportExport;
 use App\Exports\SaleReturnWarehouseReportExport;
 use App\Exports\SalesWarehouseReportExport;
+use App\Exports\StockQtyReportExport;
 use App\Exports\StockReportExport;
 use App\Exports\TopSellingProductReportExport;
 use App\Http\Controllers\AppBaseController;
@@ -225,6 +226,75 @@ class ReportAPIController extends AppBaseController
         $data['stock_report_excel_url'] = Storage::url('excel/stock-report-excel.xlsx');
 
         return $this->sendResponse($data, 'Stock Report retrieved successfully');
+    }
+
+    public function stockQtyReport(Request $request)
+    {
+        $warehouseId = $request->get('warehouse_id');
+        $startDate = Carbon::parse(request()->get('start_date'))->startOfDay()->toDateTimeString();
+        $endDate = Carbon::parse(request()->get('end_date'))->endOfDay()->toDateTimeString();
+        // if ($request->get('start_date') && $request->get('start_date') != 'null') {
+
+            $saleQty =   Sale::leftjoin('sale_items', 'sales.id', '=', 'sale_items.sale_id')
+            ->leftjoin('manage_stocks', 'sale_items.product_id', '=', 'manage_stocks.product_id')
+            ->leftjoin('products', 'sale_items.product_id', '=', 'products.id')
+            ->leftjoin('warehouses', 'sales.warehouse_id', '=', 'warehouses.id')
+            ->where('sales.date', '>=', $startDate)
+            ->where('sales.date', '<=', $endDate)
+            ->where('sales.warehouse_id', '=',  $warehouseId)
+            ->where('manage_stocks.warehouse_id', '=',  $warehouseId)
+            ->select('warehouses.id AS warehouse_id','warehouses.name AS warehouse_name' ,'products.name AS product_name', )
+            ->selectRaw('sale_items.*, COALESCE(sum(sale_items.quantity),0) quantity , manage_stocks.quantity  currenct_stock')
+            ->groupBy('sale_items.product_id')
+            ->orderBy('sale_items.product_id', 'asc')
+            ->get();
+        // } else {
+        //     $saleQty =  Sale::leftjoin('sale_items', 'sales.id', '=', 'sale_items.sale_id')
+        //     ->leftjoin('manage_stocks', 'sale_items.product_id', '=', 'manage_stocks.product_id')
+        //     ->leftjoin('products', 'sale_items.product_id', '=', 'products.id')
+        //     ->leftjoin('warehouses', 'sales.warehouse_id', '=', 'warehouses.id')
+        //     ->where('sales.warehouse_id', '=',  $warehouseId)
+        //     ->where('manage_stocks.warehouse_id', '=',  $warehouseId)
+        //     ->select('warehouses.id AS warehouse_id','warehouses.name AS warehouse_name' ,'products.name AS product_name', )
+        //     ->selectRaw('sale_items.*, COALESCE(sum(sale_items.quantity),0) quantity , manage_stocks.quantity  currenct_stock')
+        //     ->groupBy('sale_items.product_id')
+        //     ->orderBy('sale_items.product_id', 'asc')
+        //     ->get();
+        // }
+
+        $arrSaleQty = [];
+        foreach ($saleQty as $item) {
+            $arrSaleQty[] = $item->prepareSalesQtyReport();
+        }
+
+        return [
+            'success' => true,
+            'data' => $arrSaleQty,
+            'total' => count($arrSaleQty),
+        ];
+    }
+
+    public function stockQtyReportExcel(Request $request): JsonResponse
+    {
+
+        if (Storage::exists('excel/stock-qty-report-excel.xlsx')) {
+            Storage::delete('excel/stock-qty-report-excel.xlsx');
+        }
+        Excel::store(new StockQtyReportExport, 'excel/stock-qty-report-excel.xlsx');
+
+        $data['stock_qty_report_excel_url'] = Storage::url('excel/stock-qty-report-excel.xlsx');
+
+        return $this->sendResponse($data, 'Stock Qty Report retrieved successfully');
+
+
+        // if (Storage::exists('excel/stock-qty-report-excel.xlsx')) {
+        //     Storage::delete('excel/stock-qty-report-excel.xlsx');
+        // }
+        // Excel::store(new StockReportExport, 'excel/stock-qty-report-excel.xlsx');
+
+        // $data['stock_qty_report_excel_url'] = Storage::url('excel/stock-qty-report-excel.xlsx');
+
+        // return $this->sendResponse($data, 'Stock Qty Report retrieved successfully');
     }
 
 

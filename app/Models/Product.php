@@ -339,6 +339,15 @@ class Product extends BaseModel implements HasMedia, JsonResourceful
         ];
     }
 
+    public function prepareStockQtyReport(): array
+    {
+        return [
+            'id' => $this->id,
+            'date' => $this->date,
+            'paid_amount' => $this->paid_amount,
+        ];
+    }
+
     public function prepareTopSellingReport(): array
     {
         return [
@@ -351,6 +360,7 @@ class Product extends BaseModel implements HasMedia, JsonResourceful
             'sale_unit' => isset($this->getSaleUnitName()['short_name']) ? $this->getSaleUnitName()['short_name'] : null,
         ];
     }
+
 
     public function yearlyTopSelling(): array
     {

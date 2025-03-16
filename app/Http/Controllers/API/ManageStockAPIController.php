@@ -7,6 +7,7 @@ use App\Http\Resources\ManageStockCollection;
 use App\Http\Resources\ManageStockResource;
 use App\Repositories\ManageStockRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class UserAPIController
@@ -43,4 +44,5 @@ class ManageStockAPIController extends AppBaseController
 
         return new ManageStockCollection($stocks);
     }
+
 }

@@ -41,6 +41,10 @@ const SaleReport = (props) => {
         }
     }, [isWarehouseValue]);
 
+    console.log("fetchSales : ",fetchSales)
+
+    console.log("sales : ",sales)
+
     const itemsValue =
         currencySymbol &&
         sales.length >= 0 &&

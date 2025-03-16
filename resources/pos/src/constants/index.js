@@ -61,6 +61,7 @@ export const apiBaseURL = {
     WAREHOUSE_REPORT: "warehouse-report",
     WAREHOUSE_DETAILS: "warehouse-details",
     STOCK_REPORT: "stock-report",
+    STOCK_QTY_REPORT: "stock-qty-report",
     PRODUCT_STOCK_REPORT: "product-stock-alerts",
     TOP_SELLING_REPORT: "top-selling-product-report",
     STOCK_SALE_TAB: "get-sale-product-report",
@@ -437,6 +438,10 @@ export const stockReportActionType = {
     STOCK_DETAILS_PURCHASE_TAB: "STOCK_DETAILS_PURCHASE_TAB",
     STOCK_DETAILS_PURCHASE_RETURN_TAB: "STOCK_DETAILS_PURCHASE_RETURN_TAB",
     STOCK_DETAILS_WAREHOUSE: "STOCK_DETAILS_WAREHOUSE",
+};
+
+export const saleQtyReportActionType = {
+    SALE_QTY_REPORT: "SALE_QTY_REPORT",
 };
 
 export const supplierReportActionType = {

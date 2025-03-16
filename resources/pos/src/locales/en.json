@@ -240,6 +240,7 @@
     "product.input.multiple-image.label": "Multiple Image",
     "product.table.image.column.label": "Image",
     "product.table.price.column.label": "Price",
+    "product.table.quantity.column.label": "Quantity",
     "product.product-details.title": "Product Details",
     "product.product-details.code-product.label": "Code Product",
     "product.product-details.category.label": "Category",

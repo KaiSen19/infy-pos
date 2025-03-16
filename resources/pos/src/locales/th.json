@@ -229,6 +229,7 @@
     "product.input.multiple-image.label": "หลายภาพ",
     "product.table.image.column.label": "ภาพ",
     "product.table.price.column.label": "ราคา",
+    "product.table.quantity.column.label": "จำนวน",
     "product.product-details.title": "รายละเอียดสินค้า",
     "product.product-details.code-product.label": "รหัสสินค้า",
     "product.product-details.category.label": "หมวดหมู่",

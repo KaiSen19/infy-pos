@@ -357,6 +357,10 @@ Route::middleware('auth:sanctum')->group(function () {
     //Warehouse Products alert Quantity Report
     Route::get('product-stock-alerts/{warehouse_id?}', [ReportAPIController::class, 'stockAlerts']);
 
+    //stock qty report
+    Route::get('stock-qty-report', [ReportAPIController::class, 'stockQtyReport'])->name('report-stockQtyReport');
+    Route::get('stock-qty-report-excel', [ReportAPIController::class, 'stockQtyReportExcel'])->name('report-stockQtyReportExcel');
+
     //stock report
     Route::get('stock-report', [ManageStockAPIController::class, 'stockReport'])->name('report-stockReport');
     Route::get('stock-report-excel', [ReportAPIController::class, 'stockReportExcel'])->name('report-stockReportExcel');

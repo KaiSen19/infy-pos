@@ -244,6 +244,24 @@ class Sale extends BaseModel implements HasMedia, JsonResourceful
         return $fields;
     }
 
+    public function prepareSalesQtyReport(): array
+    {
+        return [
+            'warehouse_id' => $this->warehouse_id,
+            'warehouse_name' => $this->warehouse_name,
+            'product_id'=>$this->product_id,
+            'product_name' => $this->product_name,
+            'quantity' => $this->quantity,
+            'currenct_stock' => $this->currenct_stock,
+            // 'product_unit_name' => $this->getProductUnitName(),
+            // 'product_category_name' => $this->product->productCategory->name,
+            // 'price' => $this->product_price,
+            // 'code' => $this->code,
+            // 'product_code' => $this->product_code,
+            // 'sale_unit' => isset($this->getSaleUnitName()['short_name']) ? $this->getSaleUnitName()['short_name'] : null,
+        ];
+    }
+
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'customer_id', 'id');

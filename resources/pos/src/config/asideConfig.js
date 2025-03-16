@@ -36,19 +36,46 @@ import { getFormattedMessage } from "../shared/sharedMethod";
 
 export default [
     {
-        title: "dashboard.title",
-        name: "dashboard",
-        fontIcon: <FontAwesomeIcon icon={faPieChart} />,
-        to: "/app/dashboard",
+        title: "reports.cashier.title",
+        name: "reports-cashier",
+        fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
+        to: "/app/report/report-sale-qty",
         class: "d-flex",
-        permission: Permissions.MANAGE_DASHBOARD,
+        permission: Permissions.MANAGE_REPORTS_CASHIER,
         items: [
             {
-                title: getFormattedMessage("dashboard.title"),
-                to: "/app/dashboard",
+                title: getFormattedMessage("sale.qty.reports.title"),
+                to: "/app/report/report-sale-qty",
             },
         ],
+        // subPath: {
+        //     saleQtySubPath: "/app/report/report-sale-qty",
+        // },
+        // subMenu: [
+        //     {
+        //         title: "sale.qty.reports.title",
+        //         to: "/app/report/report-sale-qty",
+        //         name: "reports-cashier",
+        //         class: "d-flex",
+        //         fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
+        //         permission: Permissions.MANAGE_REPORTS_CASHIER,
+        //     },
+        // ],
     },
+    // {
+    //     title: "dashboard.title",
+    //     name: "dashboard",
+    //     fontIcon: <FontAwesomeIcon icon={faPieChart} />,
+    //     to: "/app/dashboard",
+    //     class: "d-flex",
+    //     permission: Permissions.MANAGE_DASHBOARD,
+    //     items: [
+    //         {
+    //             title: getFormattedMessage("dashboard.title"),
+    //             to: "/app/dashboard",
+    //         },
+    //     ],
+    // },
     {
         title: "products.title",
         name: "products",
@@ -333,27 +360,33 @@ export default [
             },
         ],
     },
-    {
-        title: "reports.cashier.title",
-        name: "reports-cashier",
-        fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
-        to: "/app/reports-cashier",
-        class: "d-flex",
-        permission: Permissions.MANAGE_REPORTS_CASHIER,
-        subPath: {
-            saleQtySubPath: "/app/report/report-sale-qty",
-        },
-        subMenu: [
-            {
-                title: "sale.qty.reports.title",
-                to: "/app/report/report-sale-qty",
-                name: "reports-cashier",
-                class: "d-flex",
-                fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
-                permission: Permissions.MANAGE_REPORTS_CASHIER,
-            },
-        ],
-    },
+    // {
+    //     title: "reports.cashier.title",
+    //     name: "reports-cashier",
+    //     fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
+    //     to: "/app/report/report-sale-qty",
+    //     class: "d-flex",
+    //     permission: Permissions.MANAGE_REPORTS_CASHIER,
+    //     items: [
+    //         {
+    //             title: getFormattedMessage("sale.qty.reports.title"),
+    //             to: "/app/report/report-sale-qty",
+    //         },
+    //     ],
+    //     // subPath: {
+    //     //     saleQtySubPath: "/app/report/report-sale-qty",
+    //     // },
+    //     // subMenu: [
+    //     //     {
+    //     //         title: "sale.qty.reports.title",
+    //     //         to: "/app/report/report-sale-qty",
+    //     //         name: "reports-cashier",
+    //     //         class: "d-flex",
+    //     //         fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
+    //     //         permission: Permissions.MANAGE_REPORTS_CASHIER,
+    //     //     },
+    //     // ],
+    // },
     {
         title: "reports.title",
         name: "reports",
@@ -404,11 +437,11 @@ export default [
                 to: "/app/report/report-stock",
                 detail: "/app/report/report-detail-stock",
             },
-            {
-                title: getFormattedMessage("stock.reports.title"),
-                to: "/app/report/report-stock",
-                detail: "/app/report/report-detail-stock",
-            },
+            // {
+            //     title: getFormattedMessage("stock.reports.title"),
+            //     to: "/app/report/report-stock",
+            //     detail: "/app/report/report-detail-stock",
+            // },
             {
                 title: getFormattedMessage("purchase.reports.title"),
                 to: "/app/report/report-purchase",
