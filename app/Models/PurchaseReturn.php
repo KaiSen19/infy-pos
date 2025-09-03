@@ -39,7 +39,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property-read int|null $purchase_return_items_count
  * @property-read \App\Models\Supplier $supplier
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturn newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturn newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturn query()
@@ -61,7 +60,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturn whereTaxRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturn whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturn whereWarehouseId($value)
- *
  * @mixin \Eloquent
  */
 class PurchaseReturn extends BaseModel implements HasMedia, JsonResourceful

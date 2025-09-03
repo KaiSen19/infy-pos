@@ -40,7 +40,8 @@ export default {
                 localStorage.removeItem(Tokens.GET_PERMISSIONS);
                 window.location.href = environment.URL + '#' + '/login';
             }else if(error.response.status === 403 || error.response.status === 404) {
-                window.location.href = environment.URL + '#' + '/app/dashboard';
+                // window.location.href = environment.URL + '#' + '/app/dashboard';
+                window.location.href = environment.URL + '#' + '/app/welcome';
             }else {
                 return Promise.reject({...error})
             }

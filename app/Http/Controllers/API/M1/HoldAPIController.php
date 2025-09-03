@@ -9,6 +9,7 @@ use App\Repositories\HoldRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Exception;
 
 class HoldAPIController extends AppBaseController
 {

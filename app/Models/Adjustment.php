@@ -24,7 +24,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  *  * @property-read \App\Models\Warehouse $warehouse
  * @property-read int|null $media_count
  *  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AdjustmentItem[] $adjustmentItems
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Adjustment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Adjustment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Adjustment query()
@@ -34,13 +33,10 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|Adjustment whereReferenceCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Adjustment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Adjustment whereWarehouseId($value)
- *
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AdjustmentItem> $adjustmentItems
  * @property-read int|null $adjustment_items_count
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Adjustment whereTotalProducts($value)
- *
  * @mixin \Eloquent
  */
 class Adjustment extends BaseModel implements HasMedia, JsonResourceful

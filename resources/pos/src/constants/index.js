@@ -598,6 +598,7 @@ export const Permissions = {
     MANAGE_SMS_API: "manage_sms_apis",
     MANAGE_SMS_TEMPLATES: "manage_sms_templates",
     MANAGE_LANGUAGES: "manage_language",
+    MANAGE_WELCOME: "manage_welcome",
 };
 
 //POS Screen Constants

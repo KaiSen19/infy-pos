@@ -34,6 +34,7 @@ const permissionMappings = {
     manage_sale_return: "/app/sale-return",
     manage_report: "/app/report/report-warehouse",
     manage_language: "/app/languages",
+    manage_welcome: "/app/welcome",
 };
 
 const mapPermissionToRoute = (permission) => {
@@ -97,15 +98,23 @@ export const loginAction = (user, navigate, setLoading) => async (dispatch) => {
             const userPermissions = response.data.data.permissions;
             const mappedRoutes = userPermissions.map(mapPermissionToRoute);
             if (mappedRoutes && mappedRoutes.length > 0) {
-                if (userPermissions.includes("manage_dashboard")) {
+                if (userPermissions.includes("manage_welcome")) {
                     // If 'manage_dashboard' permission is present, redirect to the first permission
-                    navigate("/app/dashboard");
+                    navigate("/app/welcome");
                 } else {
                     // If 'manage_dashboard' is not present, redirect to the first permission route
                     navigate(mappedRoutes[0]);
                 }
+
+                // if (userPermissions.includes("manage_dashboard")) {
+                //     // If 'manage_dashboard' permission is present, redirect to the first permission
+                //     navigate("/app/dashboard");
+                // } else {
+                //     // If 'manage_dashboard' is not present, redirect to the first permission route
+                //     navigate(mappedRoutes[0]);
+                // }
             } else {
-                navigate("/app/dashboard");
+                navigate("/app/welcome");
             }
 
             dispatch(fetchPermissions());

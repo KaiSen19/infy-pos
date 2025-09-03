@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Product $product
  * @property-read \App\Models\Purchase $purchase
- *
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseItem query()
@@ -48,7 +47,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseItem whereTaxType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseItem whereTaxValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseItem whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class PurchaseItem extends BaseModel implements JsonResourceful

@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\State[] $states
  * @property-read int|null $states_count
- *
  * @method static \Database\Factories\CountryFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Country newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Country newQuery()
@@ -28,7 +27,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Country wherePhoneCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Country whereShortCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Country whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class Country extends Model

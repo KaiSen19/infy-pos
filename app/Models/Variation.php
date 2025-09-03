@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Variation whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Variation whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Variation whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\VariationProduct> $variationProducts
+ * @property-read int|null $variation_products_count
  * @mixin \Eloquent
  */
 class Variation extends BaseModel

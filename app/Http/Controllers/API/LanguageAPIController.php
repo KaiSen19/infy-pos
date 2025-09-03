@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Exception;
 
 class LanguageAPIController extends AppBaseController
 {

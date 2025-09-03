@@ -14,6 +14,7 @@ use App\Repositories\AdjustmentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Exception;
 
 class AdjustmentAPIController extends AppBaseController
 {

@@ -32,7 +32,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  *  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TransferItem[] $transferItems
  * @property-read int|null $media_count
  * @property-read \App\Models\Warehouse $toWarehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer query()
@@ -50,11 +49,9 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer whereTaxRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer whereToWarehouseId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer whereUpdatedAt($value)
- *
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\TransferItem> $transferItems
  * @property-read int|null $transfer_items_count
- *
  * @mixin \Eloquent
  */
 class Transfer extends BaseModel implements HasMedia, JsonResourceful

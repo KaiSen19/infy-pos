@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|ExpenseCategory newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ExpenseCategory newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ExpenseCategory query()
@@ -23,10 +22,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|ExpenseCategory whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ExpenseCategory whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ExpenseCategory whereUpdatedAt($value)
- *
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Expense> $expenses
  * @property-read int|null $expenses_count
- *
  * @mixin \Eloquent
  */
 class ExpenseCategory extends BaseModel

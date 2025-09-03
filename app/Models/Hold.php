@@ -31,7 +31,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\HoldItem[] $holdItems
  * @property-read int|null $hold_items_count
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Hold newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Hold newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Hold query()
@@ -51,7 +50,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Hold whereTaxRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Hold whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Hold whereWarehouseId($value)
- *
  * @mixin \Eloquent
  */
 class Hold extends BaseModel implements JsonResourceful

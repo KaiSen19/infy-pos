@@ -44,7 +44,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property-read int|null $media_count
  * @property-read \App\Models\ProductCategory|null $productCategory
  * @property-read \App\Models\Warehouse|null $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product query()
@@ -67,21 +66,18 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereTaxType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereWarehouseId($value)
- *
  * @property-read string $barcode_image_url
  * @property int|null $barcode_symbol
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereBarcodeSymbol($value)
- *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Purchase[] $purchases
  * @property-read int|null $purchases_count
  * @property-read \App\Models\ManageStock|null $stock
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ManageStock[] $stocks
  * @property-read int|null $stocks_count
  * @property string|null $quantity_limit
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereQuantityLimit($value)
- *
+ * @property-read \App\Models\VariationProduct|null $variationProduct
+ * @property-read \App\Models\VariationType|null $variationType
  * @mixin \Eloquent
  */
 class Product extends BaseModel implements HasMedia, JsonResourceful

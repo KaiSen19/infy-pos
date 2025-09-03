@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate query()
@@ -27,7 +26,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class MailTemplate extends BaseModel implements JsonResourceful

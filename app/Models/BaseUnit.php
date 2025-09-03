@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|BaseUnit newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseUnit newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseUnit query()
@@ -20,11 +19,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|BaseUnit whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseUnit whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseUnit whereUpdatedAt($value)
- *
  * @property int $is_default
- *
  * @method static \Illuminate\Database\Eloquent\Builder|BaseUnit whereIsDefault($value)
- *
  * @mixin \Eloquent
  */
 class BaseUnit extends BaseModel

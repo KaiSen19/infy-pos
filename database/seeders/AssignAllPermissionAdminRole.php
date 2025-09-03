@@ -97,6 +97,10 @@ class AssignAllPermissionAdminRole extends Seeder
                 'name' => 'manage_sale_return',
                 'display_name' => 'Manage Sale Return',
             ],
+            [
+                'name' => 'manage_welcome',
+                'display_name' => 'Manage Welcome',
+            ],
 
         ];
 

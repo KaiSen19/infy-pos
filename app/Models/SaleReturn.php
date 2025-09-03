@@ -36,7 +36,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SaleReturnItem[] $saleReturnItems
  * @property-read int|null $sale_return_items_count
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn query()
@@ -56,12 +55,10 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn whereTaxRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn whereWarehouseId($value)
- *
  * @property int|null $sale_id
  * @property-read \App\Models\Sale|null $sale
- *
  * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn whereSaleId($value)
- *
+ * @method static \Illuminate\Database\Eloquent\Builder|SaleReturn user($userId)
  * @mixin \Eloquent
  */
 class SaleReturn extends BaseModel implements HasMedia, JsonResourceful

@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Hold $hold
  * @property-read \App\Models\Product $product
- *
  * @method static \Illuminate\Database\Eloquent\Builder|HoldItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|HoldItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|HoldItem query()
@@ -48,7 +47,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|HoldItem whereTaxType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HoldItem whereTaxValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HoldItem whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class HoldItem extends BaseModel implements JsonResourceful

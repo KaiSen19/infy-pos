@@ -854,7 +854,8 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `created_
 (26, 'manage_sms_apis', 'Manage Sms Apis', 'web', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
 (27, 'manage_language', 'Manage Language', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
 (28, 'manage_variations', 'Manage Variations', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
-(29, 'manage_reports_cashier', 'Manage Reports Cashier', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31');
+(29, 'manage_reports_cashier', 'Manage Reports Cashier', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(30, 'manage_welcome', 'Manage Welcome', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29');
 
 -- --------------------------------------------------------
 

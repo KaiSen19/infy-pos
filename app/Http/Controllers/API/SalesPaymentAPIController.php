@@ -11,6 +11,7 @@ use App\Repositories\SalesPaymentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Exception;
 
 class SalesPaymentAPIController extends AppBaseController
 {

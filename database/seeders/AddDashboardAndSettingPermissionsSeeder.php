@@ -21,6 +21,10 @@ class AddDashboardAndSettingPermissionsSeeder extends Seeder
                 'name' => 'manage_dashboard',
                 'display_name' => 'Manage Dashboard',
             ],
+            [
+                'name' => 'manage_welcome',
+                'display_name' => 'Manage Welcome',
+            ],
         ];
         foreach ($permissions as $permission) {
             $permissionExist = Permission::whereName($permission['name'])->exists();

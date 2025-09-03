@@ -42,7 +42,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property-read int|null $sale_items_count
  * @property-read \App\Models\Warehouse $warehouse
  * @property-read \App\Models\SalesPayment $latestPayment
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Sale newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sale newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sale query()
@@ -64,13 +63,12 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereTaxRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereWarehouseId($value)
- *
  * @property int $is_return
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SalesPayment[] $payments
  * @property-read int|null $payments_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereIsReturn($value)
- *
+ * @property int|null $user_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereUserId($value)
  * @mixin Eloquent
  */
 class Sale extends BaseModel implements HasMedia, JsonResourceful

@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Product|null $product
  * @property-read \App\Models\PurchaseReturn|null $purchaseReturn
- *
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturnItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturnItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturnItem query()
@@ -48,11 +47,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturnItem whereTaxType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturnItem whereTaxValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturnItem whereUpdatedAt($value)
- *
  * @property int $purchase_return_id
- *
  * @method static \Illuminate\Database\Eloquent\Builder|PurchaseReturnItem whereCreatedAt($value)
- *
  * @mixin \Eloquent
  */
 class PurchaseReturnItem extends BaseModel implements JsonResourceful

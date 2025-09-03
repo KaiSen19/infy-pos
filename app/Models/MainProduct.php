@@ -9,6 +9,34 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $code
+ * @property string|null $product_unit
+ * @property int $product_type 1=Single, 2=Variable
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read array|string $image_url
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property-read int|null $media_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $products
+ * @property-read int|null $products_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\VariationType> $variationTypes
+ * @property-read int|null $variation_types_count
+ * @property-read \App\Models\Variation|null $variations
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct whereProductType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct whereProductUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MainProduct whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class MainProduct extends Model implements HasMedia, JsonResourceful
 {
     use HasFactory, HasJsonResourcefulData, InteractsWithMedia;

@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Product $product
  * @property-read \App\Models\Sale $sale
- *
  * @method static \Illuminate\Database\Eloquent\Builder|SaleItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SaleItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SaleItem query()
@@ -48,7 +47,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|SaleItem whereTaxType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SaleItem whereTaxValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SaleItem whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class SaleItem extends BaseModel implements JsonResourceful

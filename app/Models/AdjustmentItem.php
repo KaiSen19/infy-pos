@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $method_type
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|AdjustmentItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AdjustmentItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AdjustmentItem query()
@@ -28,11 +27,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|AdjustmentItem whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AdjustmentItem whereQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AdjustmentItem whereUpdatedAt($value)
- *
  * @property-read \App\Models\Adjustment $adjustment
  * @property-read mixed $sale_unit
  * @property-read \App\Models\Product $product
- *
  * @mixin \Eloquent
  */
 class AdjustmentItem extends BaseModel implements JsonResourceful

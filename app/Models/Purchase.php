@@ -34,7 +34,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PurchaseItem[] $purchaseItems
  * @property-read int|null $purchase_items_count
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase query()
@@ -53,17 +52,14 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereTaxRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereWarehouseId($value)
- *
  * @property float|null $paid_amount
  * @property int|null $payment_type
  * @property-read string $purchase_pdf_url
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, Media> $media
  * @property-read int|null $media_count
- *
  * @method static Builder|Purchase search($search = '')
  * @method static Builder|Purchase wherePaidAmount($value)
  * @method static Builder|Purchase wherePaymentType($value)
- *
  * @mixin \Eloquent
  */
 class Purchase extends BaseModel implements HasMedia, JsonResourceful

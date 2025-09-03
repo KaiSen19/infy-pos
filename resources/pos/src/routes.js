@@ -89,6 +89,7 @@ import BaseUnits from "./components/base-unit/BaseUnits";
 import RegisterReport from "./components/report/registerReport/RegisterReport";
 import Variation from "./components/variation/Variation";
 import ReceiptSettings from "./components/settings/ReceiptSettings";
+import Welcome from "./components/dashboard/Welcome";
 
 export const route = [
     {
@@ -546,5 +547,10 @@ export const route = [
         path: "languages/:id",
         ele: <EditLanguageData />,
         permission: Permissions.MANAGE_LANGUAGES,
+    },
+    {
+        path: "welcome",
+        ele: <Welcome />,
+        permission: Permissions.MANAGE_WELCOME,
     },
 ];

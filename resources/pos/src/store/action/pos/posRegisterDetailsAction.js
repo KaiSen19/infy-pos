@@ -65,7 +65,8 @@ export const closeRegisterAction = (data, navigate) => (dispatch) => {
                     ),
                 })
             );
-            navigate("/app/dashboard");
+            // navigate("/app/dashboard");
+            navigate("/app/welcome");
         })
         .catch((response) => {
             dispatch(

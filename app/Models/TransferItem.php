@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Product $product
- *
  * @method static \Illuminate\Database\Eloquent\Builder|TransferItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TransferItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TransferItem query()
@@ -45,7 +44,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|TransferItem whereTaxValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TransferItem whereTransferId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TransferItem whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class TransferItem extends BaseModel implements JsonResourceful

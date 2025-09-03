@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $address
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Customer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Customer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Customer query()
@@ -31,7 +30,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Customer whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Customer wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Customer whereUpdatedAt($value)
- *
  * @property string|null $dob
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Quotation[] $quotations
  * @property-read int|null $quotations_count
@@ -39,9 +37,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read int|null $sales_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SaleReturn[] $salesReturns
  * @property-read int|null $sales_returns_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Customer whereDob($value)
- *
  * @mixin \Eloquent
  */
 class Customer extends BaseModel

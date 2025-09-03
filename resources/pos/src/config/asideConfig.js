@@ -62,20 +62,34 @@ export default [
         //     },
         // ],
     },
-    // {
-    //     title: "dashboard.title",
-    //     name: "dashboard",
-    //     fontIcon: <FontAwesomeIcon icon={faPieChart} />,
-    //     to: "/app/dashboard",
-    //     class: "d-flex",
-    //     permission: Permissions.MANAGE_DASHBOARD,
-    //     items: [
-    //         {
-    //             title: getFormattedMessage("dashboard.title"),
-    //             to: "/app/dashboard",
-    //         },
-    //     ],
-    // },
+    {
+        title: "dashboard.title",
+        name: "dashboard",
+        fontIcon: <FontAwesomeIcon icon={faPieChart} />,
+        to: "/app/dashboard",
+        class: "d-flex",
+        permission: Permissions.MANAGE_DASHBOARD,
+        items: [
+            {
+                title: getFormattedMessage("dashboard.title"),
+                to: "/app/dashboard",
+            },
+        ],
+    },
+    {
+        title: "welcome.title",
+        name: "welcome",
+        fontIcon: <FontAwesomeIcon icon={faPieChart} />,
+        to: "/app/welcome",
+        class: "d-flex",
+        permission: Permissions.MANAGE_WELCOME,
+        items: [
+            {
+                title: getFormattedMessage("welcome.title"),
+                to: "/app/welcome",
+            },
+        ],
+    },
     {
         title: "products.title",
         name: "products",

@@ -21,7 +21,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property-read string $image_url
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|Media[] $media
  * @property-read int|null $media_count
- *
  * @method static Builder|ProductCategory newModelQuery()
  * @method static Builder|ProductCategory newQuery()
  * @method static Builder|ProductCategory query()
@@ -29,10 +28,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static Builder|ProductCategory whereId($value)
  * @method static Builder|ProductCategory whereName($value)
  * @method static Builder|ProductCategory whereUpdatedAt($value)
- *
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $products
  * @property-read int|null $products_count
- *
  * @mixin \Eloquent
  */
 class ProductCategory extends BaseModel implements HasMedia, JsonResourceful

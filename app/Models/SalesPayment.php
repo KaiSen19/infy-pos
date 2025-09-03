@@ -20,7 +20,6 @@ use Illuminate\Database\Query\Builder;
  * @property float|null $received_amount
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|SalesPayment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SalesPayment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SalesPayment query()
@@ -33,9 +32,8 @@ use Illuminate\Database\Query\Builder;
  * @method static \Illuminate\Database\Eloquent\Builder|SalesPayment whereSaleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SalesPayment whereReference($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SalesPayment whereUpdatedAt($value)
- *
  * @property-read \App\Models\Sale $sale
- *
+ * @method static \Illuminate\Database\Eloquent\Builder|SalesPayment user($userId)
  * @mixin \Eloquent
  */
 class SalesPayment extends BaseModel implements JsonResourceful

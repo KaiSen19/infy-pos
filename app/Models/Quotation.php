@@ -31,7 +31,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
  * @property-read int|null $media_count
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Quotation newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Quotation newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Quotation query()
@@ -51,13 +50,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Quotation whereTaxRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Quotation whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Quotation whereWarehouseId($value)
- *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\QuotationItem[] $quotationItems
  * @property-read int|null $quotation_items_count
  * @property int $is_sale_created
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Quotation whereIsSaleCreated($value)
- *
  * @mixin \Eloquent
  */
 class Quotation extends BaseModel implements JsonResourceful

@@ -20,7 +20,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property int $how_many_time_used
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode query()
@@ -34,14 +33,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode whereStartDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode whereUpdatedAt($value)
- *
  * @property int $discount_type
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $products
  * @property-read int|null $products_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode whereDiscount($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CouponCode whereDiscountType($value)
- *
  * @mixin \Eloquent
  */
 class CouponCode extends BaseModel implements JsonResourceful

@@ -6,6 +6,30 @@ use App\Models\Contracts\JsonResourceful;
 use App\Traits\HasJsonResourcefulData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * @property int $id
+ * @property int|null $main_product_id
+ * @property int $product_id
+ * @property int $variation_id
+ * @property int $variation_type_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\MainProduct|null $mainProduct
+ * @property-read \App\Models\Product $product
+ * @property-read \App\Models\Variation $variation
+ * @property-read \App\Models\VariationType $variationType
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct query()
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct whereMainProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct whereVariationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|VariationProduct whereVariationTypeId($value)
+ * @mixin \Eloquent
+ */
 class VariationProduct extends BaseModel implements JsonResourceful
 {
     use HasFactory, HasJsonResourcefulData;

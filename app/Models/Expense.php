@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\ExpenseCategory $expenseCategory
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Expense newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Expense newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Expense query()
@@ -32,12 +31,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereWarehouseId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereReferenceCode($value)
- *
  * @property string|null $reference_code
  * @property string|null $title
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereTitle($value)
- *
  * @mixin \Eloquent
  */
 class Expense extends BaseModel

@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Product $product
  * @property-read \App\Models\Quotation $quotation
- *
  * @method static \Illuminate\Database\Eloquent\Builder|QuotationItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuotationItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuotationItem query()
@@ -48,7 +47,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|QuotationItem whereTaxType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuotationItem whereTaxValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|QuotationItem whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class QuotationItem extends BaseModel implements JsonResourceful

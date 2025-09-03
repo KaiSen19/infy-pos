@@ -58,6 +58,7 @@ function App() {
         manage_sale_return: "/app/sale-return",
         manage_report: "/app/report/report-warehouse",
         manage_language: "/app/languages",
+        manage_welcome: "/app/welcome",
     };
 
     const mapPermissionToRoute = (permission) => {
@@ -78,8 +79,11 @@ function App() {
 
     useEffect(() => {
         if (mappedRoutes && mappedRoutes.length > 0) {
-            if (config.includes("manage_dashboard")) {
-                setRedirectTo("/app/dashboard");
+            // if (config.includes("manage_dashboard")) {
+            //     setRedirectTo("/app/dashboard");
+            // } else {
+            if (config.includes("manage_welcome")) {
+                setRedirectTo("/app/welcome");
             } else {
                 const currentPath = window.location.hash;
                 const targetPath = mappedRoutes[0];
@@ -90,7 +94,8 @@ function App() {
                 }
             }
         } else {
-            setRedirectTo("/app/dashboard");
+            // setRedirectTo("/app/dashboard");
+            setRedirectTo("/app/welcome");
         }
     }, [mappedRoutes]);
 

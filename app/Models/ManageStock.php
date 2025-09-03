@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Log;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Product $product
  * @property-read \App\Models\Warehouse $warehouse
- *
  * @method static \Illuminate\Database\Eloquent\Builder|ManageStock newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ManageStock newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ManageStock query()
@@ -28,11 +27,8 @@ use Illuminate\Support\Facades\Log;
  * @method static \Illuminate\Database\Eloquent\Builder|ManageStock whereQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ManageStock whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ManageStock whereWarehouseId($value)
- *
  * @property float $alert
- *
  * @method static \Illuminate\Database\Eloquent\Builder|ManageStock whereAlert($value)
- *
  * @mixin \Eloquent
  */
 class ManageStock extends BaseModel implements JsonResourceful

@@ -179,6 +179,8 @@ class AuthController extends AppBaseController
 
             return response()->json(['success' => __($valid)], 200);
         }
+
+        return response()->json(['success' => false, 'message' => 'Invalid token'], 401);
     }
 
     /**

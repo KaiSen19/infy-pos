@@ -20,7 +20,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|POSRegister newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|POSRegister newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|POSRegister query()
@@ -34,7 +33,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|POSRegister whereOther($value)
  * @method static \Illuminate\Database\Eloquent\Builder|POSRegister whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|POSRegister whereUserId($value)
- *
+ * @property float|null $total_sale
+ * @property float|null $total_return
+ * @property float|null $total_amount
+ * @property string|null $notes
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|POSRegister whereNotes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|POSRegister whereTotalAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|POSRegister whereTotalReturn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|POSRegister whereTotalSale($value)
  * @mixin \Eloquent
  */
 class POSRegister extends BaseModel implements JsonResourceful
